@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="test" targetRuntime="MyBatis3">
+	   <!-- optional，旨在创建class时，对注释进行控制 -->
+        
+		<plugin
+			type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+		<commentGenerator>
+			<!-- 这个元素用来去除指定生成的注释中是否包含生成的日期 false:表示保护 -->
+			<!-- 如果生成日期，会造成即使修改一个字段，整个实体类所有属性都会发生变化，不利于版本控制，所以设置为true -->
+			<property name="suppressDate" value="true" />
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!--数据库链接URL，用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://9.200.104.58:33306/epeins_factory"
+			userId="root" password="root">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<!-- This property is used to specify whether MyBatis Generator should 
+				force the use of java.math.BigDecimal for DECIMAL and NUMERIC fields, -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator
+			targetPackage="com.epeins.factory.pojo" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成映射文件的包名和位置 -->
+		<sqlMapGenerator
+			targetPackage="com.epeins.factory.mapping"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.epeins.factory.dao"
+			implementationPackage="com.epeins.factory.dao.impl"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 要生成哪些表 -->
+		 <table tableName="street"
+			domainObjectName="Street" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+		<!-- <table tableName="PD_production_plan_info"
+			domainObjectName="PlanInfo" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+		<table tableName="MT_mach_plat_info"
+			domainObjectName="MachinePlatformInfo" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+		<table tableName="MT_mach_type_info"
+			domainObjectName="MachineTypeInfo" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+		<table tableName="MT_material_info"
+			domainObjectName="MaterialInfo" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+		<table tableName="MT_prod_info"
+			domainObjectName="ProductInfo" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+		<table tableName="MT_task_info"
+			domainObjectName="TaskInfo" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table> -->
+	</context>
+</generatorConfiguration>
