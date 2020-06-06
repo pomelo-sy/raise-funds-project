@@ -19,7 +19,7 @@
 		</commentGenerator>
 		<!--数据库链接URL，用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://9.200.104.58:33306/epeins_factory"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/raise_funds_db"
 			userId="root" password="root">
 		</jdbcConnection>
 		<javaTypeResolver>
@@ -29,52 +29,40 @@
 		</javaTypeResolver>
 		<!-- 生成模型的包名和位置 -->
 		<javaModelGenerator
-			targetPackage="com.epeins.factory.pojo" targetProject="src/main/java">
+			targetPackage="org.shizhijian.raisefunds.pojo" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!-- 生成映射文件的包名和位置 -->
 		<sqlMapGenerator
-			targetPackage="com.epeins.factory.mapping"
+			targetPackage="org.shizhijian.raisefunds.mapping"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
 		<javaClientGenerator type="XMLMAPPER"
 			targetPackage="com.epeins.factory.dao"
-			implementationPackage="com.epeins.factory.dao.impl"
+			implementationPackage="org.shizhijian.raisefunds.dao.impl"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
 		<!-- 要生成哪些表 -->
-		 <table tableName="street"
-			domainObjectName="Street" enableCountByExample="true"
+		 <table tableName="f_raise_funds_desc"
+			domainObjectName="RaiseFundsDesc" enableCountByExample="true"
 			enableUpdateByExample="true" enableDeleteByExample="true"
 			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<!-- <table tableName="PD_production_plan_info"
-			domainObjectName="PlanInfo" enableCountByExample="true"
+		<table tableName="sys_approval_ticket"
+			domainObjectName="ApprovalTicket" enableCountByExample="true"
 			enableUpdateByExample="true" enableDeleteByExample="true"
 			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="MT_mach_plat_info"
-			domainObjectName="MachinePlatformInfo" enableCountByExample="true"
+		<table tableName="sys_operator"
+			domainObjectName="Operator" enableCountByExample="true"
 			enableUpdateByExample="true" enableDeleteByExample="true"
 			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="MT_mach_type_info"
-			domainObjectName="MachineTypeInfo" enableCountByExample="true"
+		<table tableName="user"
+			domainObjectName="User" enableCountByExample="true"
 			enableUpdateByExample="true" enableDeleteByExample="true"
 			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="MT_material_info"
-			domainObjectName="MaterialInfo" enableCountByExample="true"
-			enableUpdateByExample="true" enableDeleteByExample="true"
-			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="MT_prod_info"
-			domainObjectName="ProductInfo" enableCountByExample="true"
-			enableUpdateByExample="true" enableDeleteByExample="true"
-			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="MT_task_info"
-			domainObjectName="TaskInfo" enableCountByExample="true"
-			enableUpdateByExample="true" enableDeleteByExample="true"
-			enableSelectByExample="true" selectByExampleQueryId="true"></table> -->
 	</context>
 </generatorConfiguration>

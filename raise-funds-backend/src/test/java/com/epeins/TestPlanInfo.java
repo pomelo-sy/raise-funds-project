@@ -13,13 +13,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.epeins.factory.FactoryApplication;
-import com.epeins.factory.dao.PlanInfoMapper;
-import com.epeins.factory.pojo.PlanInfo;
+import org.shizhijian.raisefunds.RaiseFundsApplication;
+import org.shizhijian.raisefunds.dao.PlanInfoMapper;
+import org.shizhijian.raisefunds.pojo.PlanInfo;
 
 
 @RunWith(value=SpringRunner.class)
-@SpringBootTest(classes = {FactoryApplication.class})
+@SpringBootTest(classes = {RaiseFundsApplication.class})
 public class TestPlanInfo {
 
 	@Autowired

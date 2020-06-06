@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>main</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="webjars/bootstrap/css/bootstrap.css">
+    <script src="webjars/jquery/jquery.js"></script>
+    <script src="webjars/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+
+    <form id="form1" action="${ctx}/raise-funds/update" method="post">
+        <tr>
+            <th text-align="center">表名</th>
+            <th align="center">表空间</th>
+
+        </tr>
+        <tr th:each="config : ${configs}">
+        <td th:id=table_name_${configStat.index}" align="center" th:text="${config.tableName}"></td>
+            <td align="center" th:text="$config.nameSpace"></td>
+        <td>
+            <select th:id="new_selected+${configStat.index}">
+                <option th:each="table: ${config.tables}" th:selected="${table.name==config.selectedTable}" th:value="${table.name}" th:text="${table.name}"></option>
+            </select>
+            <button type="button" th:onclick="submit_click([][${configStat.index}]);">更改</button>
+        </td>
+        <script>
+            function submit_click(index){
+                var sure = confirm("确认修改")
+                if(sure){
+                    var tableName = "#table_name"+index;
+                    var newSelected = "#new_selected"+index;
+                    var json_data = {tableName:$(tableName).text(),selectedTable:$(newSelected).val()};
+                    $.ajax({
+                        type: "POST",
+                        url: "[[@{/updateConfigs}]]",
+                        data: JSON.stringify(json_data),
+                        dataType: "json",
+                        contentType:"application/json",
+                        success: function(data){
+                            if(data.data){
+                                location.reload();
+                            }else{
+                                alert("fail");
+                            },
+                            fail: function(data){
+                                alert("update fail");
+                            }
+                        }
+                    })
+                }
+            }
+        </script>
+</body>
+</html>

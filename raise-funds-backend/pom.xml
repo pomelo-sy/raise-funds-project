@@ -14,8 +14,6 @@
 	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>epeins-backend</name>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -81,16 +79,50 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.61</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>0.32</version>
+		</dependency>
 
 	</dependencies>
 
 	<build>
+		<finalName>raise-funds-backend</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>application.yml</include>
+					<include>application-${profiles.active}.yml</include>
+					<include>templates/*</include>
+					<include>static/**</include>
+					<include>logback.xml</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.epeins.factory.FactoryApplication</mainClass>
+					<mainClass>org.shizhijian.raisefunds.RaiseFundsApplication</mainClass>
 				</configuration>
 				<executions>
 					<execution>
@@ -101,11 +133,52 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.5</version>
+				<configuration>
+					<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+					<verbose>true</verbose>
+					<overwrite>true</overwrite>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.mybatis.generator</groupId>
+						<artifactId>mybatis-generator-maven-plugin</artifactId>
+						<version>1.3.5</version>
+					</dependency>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.47</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
 
-
+<profiles>
+	<profile>
+		<id>dev</id>
+		<properties>
+			<profiles.active>dev</profiles.active>
+		</properties>
+	</profile>
+	<profile>
+		<id>stg</id>
+		<properties>
+			<profiles.active>stg</profiles.active>
+		</properties>
+	</profile>
+	<profile>
+		<id>prd</id>
+		<properties>
+			<profiles.active>prd</profiles.active>
+		</properties>
+	</profile>
+</profiles>
 </project>

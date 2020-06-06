@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh" style="font-size: 37.5px;">
+<head>
+    <meta charset="UTF-8">
+    <title>瞅瞅</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <link rel="icon" href="https://store.shuidichou.com/imgs/common/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css"
+          href="//lib.shuidihuzhu.com/gallery/font/e8df2ee0-2a12-11ea-961c-153111383ae0/sd-icon.css">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script>!function (e, n) {
+        function t() {
+            var e = Math.min(i.clientWidth, 414) / 10;
+            i.style.fontSize = e + "px"
+        }
+
+        var i = n.documentElement;
+        t(), e.addEventListener("resize", t), e.addEventListener("pageshow", function (e) {
+            e.persisted && t()
+        })
+    }(window, document);</script>
+    <link href="https://static1.shuidichou.com/cf/css/app.5ddf9b07.css" rel="stylesheet">
+    <script src="https://cdn.shuidihuzhu.com/library/js/raven.min.js" crossorigin="anonymous"></script>
+    <style type="text/css">.img-wrap .img-banner[data-v-e046840c] {
+        display: block;
+        width: 100%;
+        max-width: 100%
+    }</style>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-7b1e3a7c.e23bd73c.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-7b1e3a7c.9a0e5ff9.js"></script>
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-fbcaade0.103bbc90.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-2f59395b.4b6ef0d8.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-2f59395b.323f9510.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-1906f632.4f1a8353.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-1906f632.649fd70f.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-26a506e1.fb955d5e.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-26a506e1.00593179.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-28c0af56.e21584d4.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-28c0af56.966fff23.js"></script>
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-353268f6.9821341e.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-272c1552.cddc5b70.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-272c1552.64003640.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-2b2ef352.becdf6c6.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-2b2ef352.579b5a99.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-2ccb559a.115a6cc6.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-2ccb559a.56698371.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-8be6dbec.5d621bd2.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-8be6dbec.2ca1203c.js"></script>
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-2d2134c7.4fba5c19.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-81346186.386d9c4b.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-81346186.1c954fc8.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-a46ddd42.e0699059.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-a46ddd42.2d6f5b97.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-97ebdc1a.a585949d.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-97ebdc1a.020ab329.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-819fb4dc.f497a068.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-819fb4dc.fc934175.js"></script>
+    <style type="text/css">
+        .crt-container[data-v-44ea8a26] {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .crt-debug[data-v-44ea8a26] {
+            z-index: 1000;
+        }
+
+        .model[data-v-44ea8a26] {
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+    </style>
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-4a68ccf6.cbe2f18d.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-2c0d7325.deef91fc.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-2c0d7325.5b3b9459.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-2f44f5b3.5b5e384b.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-2f44f5b3.e4c84e1d.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-9235258c.41c3fe34.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-9235258c.ef48850f.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-31c56a31.0bdd9758.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-31c56a31.1e3fad53.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-1697ae66.f8b1c2cf.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-1697ae66.61201d51.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://static1.shuidichou.com/cf/css/chunk-134b35f8.85f1f7ae.css">
+    <script charset="utf-8" src="https://static1.shuidichou.com/cf/js/chunk-134b35f8.91df8f17.js"></script>
+</head>
+<body>
+<div style="overflow:hidden; width:0px; height:0; margin:0 auto; position:absolute; top:-800px;"><img
+        src="//store.shuidichou.com/imgs/common/share-logo.gif"></div>
+<div data-v-3e3e7226="" id="app">
+    <div data-v-34fcd6b8="" id="globalLoading" class="global-loading" style="display: none;">
+        <div data-v-34fcd6b8="" class="global-loading-content"><img data-v-34fcd6b8=""
+                                                                    src="https://store.shuidichou.com/img/pf/h5/common/global-loading.gif"
+                                                                    alt=""> 加载中
+        </div>
+    </div>
+    <div data-v-6a59c278="" data-v-34fcd6b8="" class="cover" style="display: none;"><!----></div>
+    <div data-v-5f4718e3="" data-v-34fcd6b8=""></div>
+    <div data-v-73f707e9="" data-v-34fcd6b8="">
+        <div data-v-73f707e9="" class="div-header-fixed div-header-zindex" style="margin-top: 0px;">
+            <div>
+                <div data-v-73f707e9="" class="huzhu-new-banner banner-wrap">
+                    <div data-v-ca8e087c="" data-v-73f707e9="" class="">
+                        <div data-v-ca8e087c="">
+                            <div data-v-44ea8a26="" data-v-73f707e9="" class="sd-ad-container">
+                                <div data-v-44ea8a26="" class="crt-container"><img data-v-73f707e9=""
+                                                                                   data-v-44ea8a26=""
+                                                                                   src="https://txcrt.shuidihuzhu.com/pic/static/337afcf98a9f4cd7bb4a74b09897b609"
+                                                                                   class="adImg"><img
+                                        data-v-73f707e9="" data-v-44ea8a26=""
+                                        src="https://txcrt.shuidihuzhu.com/pic/static/2701ca9f39be4ac9ac54b4c041e9d6d0"
+                                        class="banner-hard-icon"> <!----></div> <!----></div>
+                        </div><!----></div>
+                </div>
+                <div class="div-aixinchou"><span><a href="javascript:;">
+                    <img class="img-logo" th:src="@{../image/logo.png}" /></a></span>
+                    <!---->
+                    <div class="p-raise"><span>申请大病筹款</span></div>
+                </div>
+            </div>
+        </div>
+        <div data-v-73f707e9="">
+            <div data-v-8afdae6c="" data-v-73f707e9="" transition="fade" class="overlay" style="display: none;">
+                <div data-v-8afdae6c="" class="dialog hidden" style="display: none;">
+                    <div data-v-73f707e9="" class="rumor-notice-dialog"><h3 data-v-73f707e9=""
+                                                                            class="rumor-notice-dialog--title">
+                        瞅瞅官方严正声明</h3>
+                        <div data-v-73f707e9="" class="rumor-notice-dialog--content"><p>
+                            近日出现的瞅瞅个人求助项目“因转发次数不够，钱无法到账”的网络传言属虚假信息。北京水滴互保科技有限公司作为瞅瞅的运营主体，在此郑重声明：</p>
+                            <p>大病患者发起个人求助后，需要提交疾病证明等相关材料进行专业审核。 <strong>材料审核通过后，患者即可随时提现。</strong>是否能提现与转发次数无任何关联。各位爱心人士在遇到类似传言时，可以通过“瞅瞅”微信公众号、新浪微博或官方服务热线（400-686-1179）联系瞅瞅官方，我们将第一时间进行妥善处理。
+                            </p>
+                            <p>
+                                为维护安全诚信、健康有序、清朗积极的网络环境，对于出现大量不实传言转发的项目，系统将自动暂时中止其筹款。对于涉嫌编辑、散播瞅瞅及相关个人求助项目虚假信息的组织、个人，我方将追究其法律责任。</p>
+                            <p>请各位爱心人士放心，水滴将继续坚守公益的初心，为大病患者与广大赠与人提供最贴心最严谨的服务！衷心感谢各位爱心人士对瞅瞅的关心与支持。</p></div>
+                        <a data-v-73f707e9="" href="javascript:;" class="rumor-notice-dialog--button">知道了</a></div>
+                </div>
+            </div>
+            <div data-v-8afdae6c="" data-v-4691b7c9="" data-v-73f707e9="" transition="fade" class="overlay"
+                 style="display: none;">
+                <div data-v-8afdae6c="" class="dialog hidden" style="display: none;"><h4 data-v-4691b7c9="">
+                    关于瞅瞅爱心补助规则调整的公告</h4>
+                    <div data-v-4691b7c9="" class="ruleContainer"><p data-v-4691b7c9="">
+                        从2016年7月正式上线，瞅瞅一直坚守“让广大中国家庭病有所医”的初心，致力于通过移动互联网技术搭建求助者和施助者之间信任的桥梁，让发起求助更容易、让帮扶施助更便利。自成立开始，为了更好地帮扶筹款用户，瞅瞅不但将平台服务费全免，还在行业中率先提出网络大病筹款0手续费，主动承担了支付通道的相关手续费用，以“爱心补助”的方式全额补贴给筹款用户。</p>
+                        <p data-v-4691b7c9="">
+                            截至2019年9月底，瞅瞅已帮助经济困难的大病患者筹得超过235亿元的医疗救助款，有效避免了大量因病致贫、因病返贫现象的发生。为此，瞅瞅已累计投入超过1.2亿元，补贴了数十万的大病患者。</p>
+                        <p data-v-4691b7c9="">
+                            为进一步优化资源配置，更有针对性地帮扶困难人群，将有限的资源投入给更需要帮助的用户，经过慎重考虑和用户调研，我们将对“爱心补助”进行调整：将原先针对所有筹款用户的支付通道手续费补贴，调整为针对特别困难人群、积极自救人群的“爱心补助”，每位用户最高补助1000元。符合条件的筹款用户，将有希望获得比原先更高更多的补助金额。</p>
+                        <p data-v-4691b7c9="">
+                            “爱心补助”调整自2019年10月15日零点开始实施，在该时间点之后发起项目的筹款用户，可通过瞅瞅在线客服了解详情，申请爱心补助。对于在该时间点之前发起的筹款用户，瞅瞅仍会按照原规则补贴支付通道手续费。</p>
+                        <p data-v-4691b7c9="">
+                            作为国内领先的免费个人大病求助互联网服务平台，瞅瞅深知肩负的责任重大，我们将持续优化服务体验，捍卫广大爱心人士的善行善举，让真正陷入困境的大病患者能够得到及时救助。</p>
+                    </div>
+                    <div data-v-4691b7c9="" class="configButton">好的</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-v-34fcd6b8="" id="sd-sdk-scrollRoot" class="div-content">
+        <div data-v-929c85da="" data-v-34fcd6b8="">
+            <div data-v-01cb7bb7="" data-v-929c85da="" id="js-title-module" class="div-sponsor-info">
+                <h3 data-v-01cb7bb7="">
+                    <div data-v-01cb7bb7="" class="div-sponsor-info-left"><img data-v-01cb7bb7=""
+                                                                               src="https://avatar.shuidihuzhu.com/Q3auHgzwzM40Vic17GHmU6ZfnMP2qITp1V0ia2ReZxmpQTWQwKuTD1dfVFWkQ06icWAI1gKYtbgfRWWN0BBMEicL6WclUuMW09vaiaoqzUT7BoU0/132"
+                                                                               class="div-sponsor-info-avatar"><span
+                            data-v-01cb7bb7=""
+                            class="div-sponsor-info-nickname" th:text="${desc.getSponsorUserName()}"></span><span
+                            data-v-01cb7bb7="" class="div-sponsor-info-label">发起筹款</span></div>
+                    <div data-v-01cb7bb7="" class="div-sponsor-info-right"><span data-v-01cb7bb7=""
+                                                                                 class="help-icon">个人求助</span></div>
+                </h3>
+                <div data-v-01cb7bb7=""><!---->
+                    <div></div>
+                </div>
+                <div data-v-01cb7bb7=""><!---->
+                    <div><h1 data-v-01cb7bb7="" class="case-title" th:text="${desc.title}"> </h1></div>
+                </div>
+            </div>
+            <div data-v-929c85da="">
+                <div data-v-1215d294="" data-v-929c85da=""><!---->
+                    <div data-v-1215d294=""><!---->
+                        <div data-v-9e8d8316="" data-v-929c85da="" id="js-amount-module" class="div-raise-amount"
+                             data-v-1215d294="">
+                            <div data-v-9e8d8316="" class="div-cell"><p data-v-9e8d8316="" class="p-amount" th:text="${desc.fundsTarget}">
+                                </p>
+                                <p data-v-9e8d8316="" class="p-type">急需筹款(元)</p></div>
+                            <div data-v-9e8d8316="" class="div-cell"><p data-v-9e8d8316="" class="p-amount" th:text="${desc.getFundsCollected()}"></p>
+                                <p data-v-9e8d8316="" class="p-type">已经筹到(元)</p></div>
+                            <div data-v-9e8d8316="" class="div-cell"><p data-v-9e8d8316="" class="p-amount" th:text="${desc.getFundsCounts()}"></p>
+                                <p data-v-9e8d8316="" class="p-type">帮助次数</p></div><!----></div>
+                    </div>
+                </div>
+            </div><!---->
+            <div data-v-34fcd6b8=""><!----><!----><!---->
+                <div data-v-31ecc363="" data-v-34fcd6b8="">
+                    <div data-v-3263cf96="" data-v-31ecc363="" class="div-chou-guide div-transform-top">
+                        <div data-v-3263cf96="" class="div-guide-wrap div-no-border">
+                            <div data-v-3263cf96="" class="div-text-url-wrap"><img data-v-3263cf96=""
+                                                                                   src="https://avatar.shuidihuzhu.com/Q3auHgzwzM40Vic17GHmU6ZfnMP2qITp1V0ia2ReZxmpQTWQwKuTD1dfVFWkQ06icWAI1gKYtbgfRWWN0BBMEicL6WclUuMW09vaiaoqzUT7BoU0/132"
+                                                                                   alt="" class="img-guide-header">
+                                <p data-v-3263cf96="" class="p-text-wrap">“ 朋友，我需要你的一次转发，帮我渡过难关！ ”</p></div>
+                            <div data-v-3263cf96="" class="div-button-share div-background-orange"><i
+                                    data-v-3263cf96="" class="i-love-icon"></i><span data-v-3263cf96="">去转发</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-v-31ecc363="">
+                        <div data-v-31ecc363="">
+                            <div data-v-3437a247=""></div>
+                        </div>
+                    </div>
+                </div><!----></div>
+            <div data-v-4e038a9e="" data-v-929c85da="" id="js-investment-module">
+                <div data-v-4e038a9e="" class="banner"><img data-v-4e038a9e=""
+                                                            src="https://static1.shuidichou.com/cf/img/icon-money-tip.66673b54.png"
+                                                            class="banner-icon">
+                    <div data-v-4e038a9e="" class="banner-tips"><p data-v-4e038a9e="" class="banner-tips-title">
+                        0服务费，【瞅瞅】平台不收取任何费用</p>
+                        <p data-v-4e038a9e="" class="banner-tips-content">腾讯、美团点评、高榕资本、IDG投资，安全可靠</p></div>
+                    <img data-v-4e038a9e=""
+                         src="data:image/png;base64,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"
+                         class="banner-warning"></div>
+            </div>
+            <div data-v-929c85da="">
+                <div data-v-1215d294="" data-v-929c85da=""><!---->
+                    <div data-v-1215d294=""></div>
+                </div><!----><!----></div>
+            <div data-v-929c85da="">
+                <div data-v-929c85da="">
+                    <div data-v-60319fdf="" data-v-929c85da="" class="div-case-detail"><p data-v-60319fdf=""
+                                                                                          class="p-title"><span
+                            data-v-60319fdf="" class="p-title-content">求助人的故事</span><span data-v-60319fdf=""
+                                                                                          class="p-title-report"><img
+                            data-v-60319fdf=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAA7FJREFUSA2tVs9PE1EQ/t7y42DCP0A1Uj1A4skbBytBgx5MgANcGk8G/wpNuHAX/Ae8qImRA5gYQ4gaLInoRS/YElNQQ2tUPGkiFrbPb2bfli50d2niJK/7ujPzfW/ezps3BscQ+wnn4WOcpjkYZGDRq24GVc4r8FDg+wXTh3dpcCbJwG5igoAzHP1Jdg2dwQaJb5szmG+8OzRpSciIstjDQxINqr3BNp+LBHvKUUYPIxP5xUgtzvLdNdQxxvlJzkXW0IW86cOW/kv6sR8xZDeww2E5Kvw/ZS06knxEJzZqKz6B745gJfopWRE1W6J/CYv2B2NpU8RHfQOMWiwpjbK2yMiKJCtijiv2WnFpJFuY5fd9w62/EWPjMcq79oNi7Qj2ETsqX9t1GqwzshgycSJJ3pZpt8mxBd9+cRl7CFEwFEswiR2qNQoqJpj2kiBVfq3rxjAF4sTHaZcYoJXH5Mq0MlUMYjGRqrQbVA4aBtvma+pz+Zg2A8y9JGneaMnI/XhjhzVNXFncjFh69j0PdXDOtnEO9+LdmzQCICJkezqL/xFMy2NVR79wyXrH3QoWuQ1+vGeTRiKTTU+ILrRWzDrPsNh7GPdIltM/dR7qdkSWdpwIBVOwZVd85IQw49jLoksVWamQyVaGI83JY3UKCDMeyaQ8gaUoKFdpzqKXyGSExPIuSQQ7yPveTnUK6l+Sy4EuJAu3My1pQk8JysJK0gTsv1sf4NC+8dzHt0aEQZTfG7q4iWBLhBZf5RtWdEvrrPrHkRO8RfZ5/fj083HLXMbnVDfBDiKsdNK4QPZhvWKAZ2nOJotd2kym2UX0lteXiEVBkmbBKcekMLv5f3s4TLkrRQIuu4qSLbDIrmIqjUkA7EveFku8LZZa3xbNGILpsEvyXvPTvtJW4jH/VVkNBsyF+HpqV5DHXzxwaS7l+5S50vpIkayHkZVo20vsSXMR81qKZULyNVX4uC9XS/MqI3M5e8GZirw+/EcxiMXEknO+5jgiwHkqfhJsFCu4E0s6jEcEn+OK3/KL32wVnfquYFaxBNNwV5xEjrx9oT3IMom7aPQE3bwbE7Y3BGl+6jbWGJnlwo0WvxFziSE4iWydU4w0It1lMj1vo4miLf7oNxtVDCBCJpyRCMNVMDGyqDW1iXBtYodW/TK3Mqi78n2MHmo5Z2PcwoM2sZtt4tDRNrElYYN4idkLvamP1wiDjTDYCF9tsxEOCcOnXdauQC7qHEeGUQWtvvQrhiXOuFZ/JL3V/wfkaqwMPqHzcAAAAABJRU5ErkJggg=="
+                            class="p-title-icon"> 质疑/举报 </span></p>
+                        <div data-v-60319fdf="" id="js-content-module" class="div-case-content">
+                            <div data-v-60319fdf="" class="text-content short">
+                                <div data-v-e5befb24="" data-v-60319fdf="">
+                                    <div data-v-e5befb24=""><!---->
+                                        <div data-v-60319fdf="" data-v-e5befb24="" th:text="${desc.getContent()}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-v-34fcd6b8=""><!---->
+                                    <div data-v-31ecc363="" data-v-34fcd6b8="" style="display: none;"><!---->
+                                        <div data-v-31ecc363="">
+                                            <div data-v-31ecc363="">
+                                                <div data-v-3437a247=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-34fcd6b8="" style="display: none;">
+                                        <div data-v-21137cb7="" data-v-34fcd6b8="" id="donation-guide"
+                                             class="donation-guide" style="display: none;">
+                                            <div data-v-176f72de="" data-v-21137cb7=""><!---->
+                                                <div data-v-176f72de="">
+                                                    <div data-v-21137cb7="" data-v-176f72de=""
+                                                         class="donation-guide-content"><img data-v-21137cb7=""
+                                                                                             data-v-176f72de=""
+                                                                                             src="https://avatar.shuidihuzhu.com/Q3auHgzwzM40Vic17GHmU6ZfnMP2qITp1V0ia2ReZxmpQTWQwKuTD1dfVFWkQ06icWAI1gKYtbgfRWWN0BBMEicL6WclUuMW09vaiaoqzUT7BoU0/132">
+                                                        <div data-v-21137cb7="" data-v-176f72de=""
+                                                             class="donation-guide-content-say">“ ”
+                                                        </div>
+                                                        <div data-v-21137cb7="" data-v-176f72de=""
+                                                             class="user-guide-111-heart"></div>
+                                                    </div><!----><!----></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-v-60319fdf="" class="div-spread"><p data-v-60319fdf=""><img data-v-60319fdf=""
+                                                                                                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAYAAAARZmTlAAAAAXNSR0IArs4c6QAAACRJREFUOBFjnDlz5n+GUTAaAkM2BBhHk/CQjbtRh4NDgC5JGABi4whiMtsufQAAAABJRU5ErkJggg==">展开全文
+                            </p></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-v-929c85da="">
+                    <div data-v-59f3db7f="" data-v-929c85da="" id="js-photo-list-module" class="div-case-imgs">
+                        <div data-v-59f3db7f="" class="img-list"><img data-v-59f3db7f=""
+                                                                      src="https://image.shuidichou.com/img/ck/20200603/1591145842746zKGh6HBNpZ1591145842746.jpeg!cf_mtr_200_nw"
+                                                                      class="case-previewer-img"></div>
+                    </div>
+                </div>
+            </div><!----></div>
+        <div data-v-34fcd6b8=""><!---->
+            <div data-v-57d18bb4="" data-v-34fcd6b8=""><img data-v-57d18bb4=""
+                                                            src="https://store.shuidichou.com/img/cf/shuidichou/transparency/drop-entry.png"
+                                                            class="drop-entry">
+                <div data-v-3e45eaef="" data-v-57d18bb4="" class="drawer">
+                    <div data-v-3e45eaef="" class="mask-hide"></div>
+                    <div data-v-3e45eaef="" class="main main-hide"
+                         style="width: 100%; height: 90%; bottom: -90%; border-top: none;">
+                        <div data-v-3e45eaef="" class="drawer-body" style="height: 100%;"></div>
+                    </div>
+                </div><!----></div>
+            <div data-v-0c45bf08="" data-v-34fcd6b8=""><!---->
+                <div data-v-0c45bf08="">
+                    <div data-v-021aa736="" data-v-0c45bf08="" fundraisingdetail="[object Object]">
+                        <div data-v-021aa736="" class="content">
+                            <div data-v-021aa736="" class="header">
+                                <div data-v-021aa736="" class="header-progress"> 筹款进展</div>
+                                <div data-v-021aa736="" class="header-report"><img data-v-021aa736=""
+                                                                                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAcCAYAAACZOmSXAAAAAXNSR0IArs4c6QAAAtlJREFUSA3FVltvDGEYfr7Zbg/SWEVU0AtJ24huV7VosA1CRURciI04JUgkEglCUolDUqFEnNo/IC5wo5dcdQ/ZRBElXBQX4kqiFTRtKHqYeb2D3cl8c65DJ5md73ne532f+Wa/750RmMBBqegBEPaBaB6EyKI4fEzEn70LWkoETaBkTQsbX5TyXvNNNIl1ve8l3hUqrlEpSMnFCwHRJtE6rOLzsg3vSgUyB8ba+VEX2FeknZSONdrH7Fnf5lx4Mxs325dhliCgqh1E5Puv9GVOLxKFXPiKo7ERaEQyutuA7iNf5uh7eYTLVLqXykcvUGZ1aR65DDzNKRkt50d60qWGHJoD9eMJmbTDnuacdJ7PqabkUAlQfx2IJ4GyZabQT0B0lLKx+daAmXE1p3RtAy+yPeYURjPiwHQ2LZ4NVOyyhJkowqjmufVczaFSBxeyapQiwzBUaIxNI9rCDWmNiZKAtfBvAaVi23n/rJT0AaFoJ0qEnJJszenB8hJomtxCnWo480QxpF/tdxLYmmP483GedYVTUiCe6Cxl6qbZ5VjMKRut4F7VYieeEEeYCXW81S7XYo4xXOIVznvJ5dBGjKA6aoydRwcpU7tADpvMqWtRnI23ySIL/nQfGHgMfO8D3t60hC2E/jJStWsyn38JELUqSHX2sHm9LPp7WGwSzb33cvWMmac69/5bY7YUdJWeNIRN5vSoUW+fbTnS8xqaAiy9Dazq5m7X5CnPCwjVGBw5lMO/Zv5l+BTPujxHel7LlgCRGBCOAHO3espNAsJp6o7N0jmFMvWVbHzYJPACg8+B4TeAxiu9/66XWopTBF/VczopqKvmFl93SAp/UBRwLxr3pzWrNCiiWuGvzo1mPgCamLFuoIDEBv4Bb9ZJOEjr55nTnUmwHuCPgaSCtYkz3Mtv/L8bEB8QUtaL5qdDRofL1lXxF2oVSHN8//75DSpDKCntESseftNr/QCkKNS7lViFaQAAAABJRU5ErkJggg=="
+                                                                                   class="header-report-img"> 质疑/举报
+                                </div>
+                            </div><!---->
+                            <div data-v-29c669d1="" data-v-021aa736="" class="content-promise">
+                                <div data-v-29c669d1="" class="promise">
+                                    <div data-v-29c669d1="" class="promise-info"><h1 data-v-29c669d1=""
+                                                                                     class="promise-info-title">
+                                        发起人承诺</h1></div>
+                                    <p data-v-29c669d1="" class="promise-content">
+                                        发起人承诺所提交的文字与图片资料完全真实，无任何虚构事实及隐瞒真相的情况，如有不实，发起人愿承担全部法律责任。</p>
+                                    <div data-v-29c669d1="" class="promise-anthor"><p data-v-29c669d1=""
+                                                                                      class="promise-anthor-time">
+                                        2020.06.04</p></div>
+                                </div>
+                            </div>
+                            <div data-v-5cdb7624="" data-v-021aa736="" class="progress">
+                                <div data-v-5cdb7624="" class="progress-list">
+                                    <div data-v-5cdb7624="" class="list-style">
+                                        <div data-v-5cdb7624="" class="style-img"><img data-v-5cdb7624=""
+                                                                                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAqlJREFUWAnFVztv1EAQ/sagIxFSKHgoJEcFNEShOqSUUIGCxKPOL4CSligFjzYl/ALqABIoXSiRSCqUNECVywXxKHJSlHASLPP5vJYP73nXxHcZyV57d2a+z7Ozs2tBoKwbU9vfxjX8wS0DXFKzCdGL5vre0qal7xuI8HrkLFamRDoc84naFMv6NzO+18GCosyp5lixdjrahuDFaA2Pps7I17TX8dCXwCdjju1s4aEqPDAGxx223i4R7Gp0Fk9M4ulFkV8uAycBfvV+B0sKPOMyKtunRN6P1HDXFY0cgbVNc9kI3mjI62WBCvUFTRzFbGNcPmb1eggk8/2hcnCLqCQ0L65kIxHZMc45wz4wcAJpVIlBLIubEmDCVTXn1rmrJQax7Fg8BUnSff7fbLfOQluuDk3KC5yKOAJc58MCJ0lixbVFn4UVbq+J7/ocVGR0XeOl5vErvb781BeV8yeB29PAHb16sro73O/eHq3jtKy1zHXzG8v9tLL9P3aB+bfA6iZp5KVxTvBkFjgVWLbkCG5ErO15V/keQhaB04LEqOOml/dJ7EiVubF4hWHv9+VZY+pQN0SIzSSMdzSfAec8VEroTkSaNEEEbMKFkAjVJXZaiEIcV62jU2CYAzxMeIVLLVRK6G4zAkEEuM5DpYRuizmwEeKYRYbr3CfUoW6IEDviGS5QOS4yRSRsIfLTTBAV+/BLMbmsNs0zLV/3QiJRmY7geaMu9+NoHfp2zH1Zl+NiZV/ncUQseyxL84XHpPYW3vHE4rE/0DBPyGOTuGqP6WklZAePzrqhNw+EUGSsvolhwamaEuALwyIGNwdCIjmW29ATj5JOQfe1ex/mj0lPBCwJsuQ8Kb3HPEDa/rJtbKs+6OvfL7e+nBGwg2yTn5Xh/5xmScREBvR7/hckDhAqnPsQkgAAAABJRU5ErkJggg=="
+                                                                                       alt="" class="style-img">
+                                        </div>
+                                        <div data-v-5cdb7624="" class="style-line"></div>
+                                    </div>
+                                </div>
+                                <div data-v-5cdb7624="" class="progress-list">
+                                    <div data-v-5cdb7624="" class="list-style">
+                                        <div data-v-5cdb7624="" class="style-img"><img data-v-5cdb7624=""
+                                                                                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAqlJREFUWAnFVztv1EAQ/sagIxFSKHgoJEcFNEShOqSUUIGCxKPOL4CSligFjzYl/ALqABIoXSiRSCqUNECVywXxKHJSlHASLPP5vJYP73nXxHcZyV57d2a+z7Ozs2tBoKwbU9vfxjX8wS0DXFKzCdGL5vre0qal7xuI8HrkLFamRDoc84naFMv6NzO+18GCosyp5lixdjrahuDFaA2Pps7I17TX8dCXwCdjju1s4aEqPDAGxx223i4R7Gp0Fk9M4ulFkV8uAycBfvV+B0sKPOMyKtunRN6P1HDXFY0cgbVNc9kI3mjI62WBCvUFTRzFbGNcPmb1eggk8/2hcnCLqCQ0L65kIxHZMc45wz4wcAJpVIlBLIubEmDCVTXn1rmrJQax7Fg8BUnSff7fbLfOQluuDk3KC5yKOAJc58MCJ0lixbVFn4UVbq+J7/ocVGR0XeOl5vErvb781BeV8yeB29PAHb16sro73O/eHq3jtKy1zHXzG8v9tLL9P3aB+bfA6iZp5KVxTvBkFjgVWLbkCG5ErO15V/keQhaB04LEqOOml/dJ7EiVubF4hWHv9+VZY+pQN0SIzSSMdzSfAec8VEroTkSaNEEEbMKFkAjVJXZaiEIcV62jU2CYAzxMeIVLLVRK6G4zAkEEuM5DpYRuizmwEeKYRYbr3CfUoW6IEDviGS5QOS4yRSRsIfLTTBAV+/BLMbmsNs0zLV/3QiJRmY7geaMu9+NoHfp2zH1Zl+NiZV/ncUQseyxL84XHpPYW3vHE4rE/0DBPyGOTuGqP6WklZAePzrqhNw+EUGSsvolhwamaEuALwyIGNwdCIjmW29ATj5JOQfe1ex/mj0lPBCwJsuQ8Kb3HPEDa/rJtbKs+6OvfL7e+nBGwg2yTn5Xh/5xmScREBvR7/hckDhAqnPsQkgAAAABJRU5ErkJggg=="
+                                                                                       alt="" class="style-img">
+                                        </div>
+                                        <div data-v-5cdb7624="" class="style-line"></div>
+                                    </div>
+                                    <div data-v-5cdb7624="" class="list-content">
+                                        <div data-v-5cdb7624="" class="list-content-name"> 信息公示 <img
+                                                data-v-5cdb7624=""
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAAXNSR0IArs4c6QAAARBJREFUKBVjYCACrFq1ihmEiVDKwEhIUWtrawJQzSSourzq6uoFUDZWCq+tbW1t6UBds////88OpNkZGRn9XVxcXuzdu/csVtOAgjgNBBkGNGg6ECP7AsT2xmcoVgNxGAZzFF5DMQzEZhjQqz+B+C/QRBaoqTgNRfYOAy7DgIYEQg1aDw1PMBdoyX8gzqyqqpoJlUfEMj7DgDG7HaQBGOOeQAqvoWAXQpPGPOQIAHkTqDkQZhjIQBDAZShQKgmUpBhBCfb27dvvgYbxgnUACVyGweRxGPpZVVVVkAmmCEYTMgykDurqQKhamFYwzRQWFgaKvRSg5EsgvsfExOSD7k0UHVAOSA1ILUgPSC/IDJBZAALhna3YaEtMAAAAAElFTkSuQmCC"
+                                                class="list-content-name-arrow"></div><!----><!---->
+                                        <div data-v-5cdb7624="">
+                                            <div data-v-7b796d68="" data-v-5cdb7624="" class="info">
+                                                <div data-v-7b796d68="" class="info-name">
+                                                    <div data-v-7b796d68="" class="info-name-order">1</div>
+                                                    家庭经济情况
+                                                </div>
+                                                <div data-v-7b796d68="" class="info-content">
+                                                    <div data-v-7b796d68="" class="info-content-title"><img
+                                                            data-v-7b796d68=""
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADcUlEQVRYCe1XS0hUURj+zjhpmrkxjBRCKlr1WmRQINKiRU+poLKiSIM2jo9FBlkyvQjDqMxNiygiTFpYi2gTJAYV9KCCglwoFdRCyh5khub8fefce8e5N2fmjs4uD5z5z/nP/3/ff/7zugP870VNKAH1Mg9/cBKC1cZfoQtBHME51ZcqXuoB1Eg5IrhOolwXmcIgA9qNNnXbpU/SCSQZdw+H5DDJb1GZC4Ueyv2UVaxvST6D/U7USKPbKXHPXwbCMh2fcZlQO224uyStwEX1w/RDkkfZziDWm77CDeSjEmH127aPK5JnoE7m4Au6iWCRK5zFLGyMkmtoHUg+NrHVorsMpII+D9Aghaaf4CdxBuplOUag17SIMx6mPECyqwnwwCXYywAusWbR7hOmoZyb81k8n/gBVMt2kl4hUDad+xHAZrSqR/GAXPo6WYlR7hXBbGIMsVbSt8NlY3f+XQIRhZCc4HiHIVd4hQyU+CbXwOfVY868hK2XBiPCPaExNbanuBXWZrpHpxXGTnFXZ2EPWtSgx89fNyw53LzXaLzVxnuKHKxBs/ruAIwFUCtzecS6SV5sG59EK5qglDjGE5J61rU4RuyjNu47LmcZLqgPum8FUCOr7PNdYJP08kJZYLfTI0LSw8kttMH6KbeQ42GAa1PBgS4qNPlXY6AwYGR6fxzMb4Qt4NTv88TsCJC8hTWTiiesp9PLOS5as+HSnBGcCrATYm3kRVJGc+tmG9cvbUp9aWmuQ+StC/Ji6YxCh1LYb94jlcpmta7oM5o3GCX309BvwoDZ0buYtyKXS7V85IzaObsmP2+A45taAANo47pVOc4eWcS9dJBvQD718Ww8LuCJ9FsaZCbJK425wnHOdpmrBpgZXQT7eLLyTNvHj/8MDEHfC9a9UcoAtqlRF/5Nec33r8m2mU/5wjUep+M/Axk2uQbyknt1yn9m/QcQZwaTVU8F4M6A4h62ils/2Txrf7H30BiHQfWegl6baylqZQO/at7YfbA9dvGEpDSqj2044QsKUS3O46MPezEDWGKmp/A+1sU6Vo4mLJm8SJ7TcJGjSrPs4wftYt6Uvxxcd6rDapifUus4eIc16Se1A+JDjnABuvj+rY0l137uDMQihSXIz0n9Z8Mq+mwPe/4NOWNemYmfzGIkqs4mkp7cVBknA38B4evpbKvvKB8AAAAASUVORK5CYII="
+                                                            alt="" class="info-content-title-icon"> 房产情况
+                                                    </div>
+                                                    <div data-v-7b796d68="" class="info-content-info">
+                                                        <div data-v-7b796d68="">
+                                                            <div data-v-7b796d68="" class="info-content-info-top">
+                                                                无房产
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-v-7b796d68="" class="info-content-title"><img
+                                                            data-v-7b796d68=""
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAFPklEQVRYCe2WfWjWVRTHv/fxMatVLqfDdGrOsrQYvUupadrbSq0ILTMqohLKbU4LKYRGL1aSYVskGkSaDC16WWHNtKA30aCSXhhRYdHUnM1Rajadz+1z7u/Z47NnP3UG0h914dxzfuf93nvu+V3pvz7cEW/AK76bNqhIe9VLXscHe6c/dYx2aIQaNcXtPxKfXU+gwp9BwInAVQToB/QBTkoH+wO8Hdgip9XA23rWfZeWHRIdPoH7faFadQ+Bb8HTsBhvHl6unwY4teqhJXraNcXYZFi5hhlBIGb73gRfhrMrSCAJrwV6I/hb4Bt4z/C9A/oRoAQYDpwHPx9+G1CvlMr1nNsEP3YkYrnGrPT9Cf4WVCkO9+LsPSXYhQJdqRpXpm76Cp6Q2Q58GngFHI/THcCmYJPSBOjlmuN7ohM74hOo8seS/2NYXEzQ3Th5h8A3qtrVq8q1xXoypsmqXR26JSSwCM4e8CWUaLXMZ8yIT+B3XYjuBGA/Dh7Q2ay8yu2KsY9nmW6JHiTxaiCFUqkin530OyfgvSPs7QTujfHnytMKTXf7OlkejmE2Sc1H7Qt89dE+84nvnNGJodl+ECf+EUYDg3FCn+XYRJ8patxpKno7watgHizJ0eiciXwDFjdpgfs529+BBBb77tT1kyhPQmEIcECWbfFP6egoGvC/XDV6Ss5Z8aaDWHf7WHP4fgiFPLit0N8DXT93lA86PH3SsSivnmAr6ic0isXSNe1uS59oLML7oCz4l9A14DVsWQu3oHOdBKMuTimK0Os4Duhy8ONAMZYztC4c28ZkKIwKTYNp7bWBcFO72ka7mIKp7QZWaKZfz/V+gyTOodDLiH1Xgj7VH+G5pkXw149C8OA6TAvdT8SoC7SjY85SP9vePmySrX4XmVnnO7rD09QcsSxmmwqtBoqAQuAHoBmIRlSYSbpaNxh7D9kB222ycZVP4K07dZTUCRT1gQ5qMbYBdtOKEoijQpT+gmHVL5X70ynMF6DW6jf+Ac16Ed75QdaVaYYfjM1idnQNHlfjY6kq/IhgmqAcHQuy4ZRsDx6+w1Tux7M9z0MPzTC9RkKPIYm59PqXM/w4otKPJsQSglvzsZ+VjZH4vFQz/KPQ9YGTnjpeMc9m+fATsuBbKJjlQC2ZNsEfiJO5rMR+u/Fjlh/Auc5DaME3Y/cmuBb4BXs76jlU/wBwZmTvgMNgIpILgCYC38Zq3w+a5X4eDu6EHkoSpezEnsDPneyuSxfhZxuVM10LnbVoqcyPYV6Kj2JkN4MzC3esaBJZ1cHaicCgH0rL+I/xX4/aZdpJPTL73/8Ktm4WN3ogK0JWT/FeS+HZnzAaZX4lsil8NCHPg84jyetoRKhaUaR0IkIDG1s7BI940W559Q2f0dlGktzZ8w7IDh7JrchtFBLTRiu4LcnbdiUN1z4KSGIcguuBcXStU9jCrabJ6+g0UhwUVp3Qa3A+DPzcyesa/FyN3nDsh2HfEFQq/VkU5vhAJ+gDAlJE7qW1HTeywo/iOF5FoS9OPkBpAZc0H145PLtGjfAn8/xaD915zPSl6NaSRD5Ce5Yt4mgboe+Gvgzcgr9pJPZuu3F2EUon84toph58eJCMw3gsDi1JK9A9fC9GJ/59YB7zufc7AOkGfAzGZj44GvZI9XoJnaiwM+w0kUH2Lvha9/J9KzAEJ1ZIjcyraNoPZ3W0jEkHosz3QHcWyU4mYDGyFD42Q68Dl7N7UbNLG3U8gmxPM/2pmFojdjjbnvuSyVaNpSt9MWvuzZanwC0E/jFW73/mv70DfwO+Y6UfI+ZpgwAAAABJRU5ErkJggg=="
+                                                            alt="" class="info-content-title-icon"> 车产情况
+                                                    </div>
+                                                    <div data-v-7b796d68="" class="info-content-info">
+                                                        <div data-v-7b796d68="">
+                                                            <div data-v-7b796d68=""
+                                                                 class="info-content-info-bottom">无车产
+                                                            </div>
+                                                        </div>
+                                                    </div><!----><!---->
+                                                    <div data-v-7b796d68="">
+                                                        <div data-v-7b796d68="" class="info-content-title"><img
+                                                                data-v-7b796d68=""
+                                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAdCAMAAAD8QJ61AAAAjVBMVEUAAAAAcv8Ah/8Acv8Acv8Acv8Acf8Acv8AdP8Acf8Ac/8Adf8Aef8AjP8Acv8Acv8Acv8Acv8Ac/8Acv8Acv8AdP8Ad/8AdP8AdP8Acv8Acv8AeP8Acf8Acv8Acv8Acf8Acf8Acv8Acv8Acv8Acv8Acv8Acv8Acv8Acv8Ac/8Acv8Acv8Acv8Ac/8Acf/+MUvcAAAALnRSTlMA+QPz3bSqZRvmVTMPBu7qfnNNR0A7IR0Wko4J8OLXysfDrqWXhXppXiS+u8yexvtU0AAAAWxJREFUKM9tkOmygjAUg1MWAdkFFXHf97z/491CSzte/X5wmibMnBQ9TfmIRL4vQkjCYp+L6FE2GHAuLhWiTdNWaOFeHOUnPumPw7SZHMntljxOmjQcd7cJOnzmNRSxR3qxFnVOH5KS+QwDyW6XGDHLWcqrjBUsyyUsFbMEVz61POwb3Wl/gOLBK3zetNpyo2puuIPiRh9rDhuEHj15nskRDltwDcEUNrG+39fWx5ICK9q15x6jiN7cluIKG8bGn08zMpvOTSLmBicWWvk0+FAUPMmuka6+cCWkK1noFSJWXTspBxzSsart+8aCQS/vQRBcyascd3QEFLGa6q1eNLzUK+k/UZJjOcYjCdl9e0mW0FxUwu6g/AsMBcXkMzARur7mLBMmoPwzPmgpKkieT0gqwRb/WFDU0NTCvo3lRHeqTlOXJ/zgLRPaf+MXzpGrGIhXPDr4nRgxq+uMI+N/JQ6UHIz/TXqOonP6cfUHTycpfyH2NjoAAAAASUVORK5CYII="
+                                                                alt="" class="info-content-title-icon"> 患者未获得其他平台的筹款
+                                                        </div>
+                                                    </div>
+                                                    <div data-v-7b796d68="" class="info-content-title"><img
+                                                            data-v-7b796d68=""
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAFd0lEQVRYCbVXW2icVRD+5t80tdF2fRAxoQ1YTBWEivpgRQQtpqIttN5qHyp98QI+lGZ3k1RBWUOrbW6gD+LloSJWbKHQeqm2XioNggFRjOiDIn1qIrRik1RRs7vjN+f8/+6/yf9nE9SBf8+Zc+bMzJkztxUsFAp6KRR389vII2v4tXLeCsEM5xOcj3P8jvgxrMAIilIi3hCkIUW3dqCCPgrYAtVLGtIbgchv/D2ApXgeL8iv851JV6Col2OKDIDHKLjJM5Eyb/gF5yP8znJuN1/CsY34KiraCehaT8tfkUnu7cMtGMBWnk2AZAV69FqU8C4Fm6mN0S8UtBcB3sGQnE/gU1sq6NUo41Eu7KIyLW5D5GM042Hsc5ap0XI2V4GC3sGbHKXwLLfLFLqXVP0YlN/rTjZCerSNl9hPPts9qfyEDH1oUM7Ej9Yr4G8+Ggq/gCZqPSAn4wcWPc/pTlpvmNbI8ELf88FuRb9MR3xqCvg3N+E0u1zgzW+juX+ICP/VmFc6MI6Qd8DnfJ9RsplRUjGeQZWxOZwXXnY3jwvP6UPI6Unk9eYqfdokpw+gSz9Ft95UJRmSo5w/7XDVTZjEjmjPK2ChZt5uYG8+2+yKbVSuk77xGRnf7uiSfvL6OJcP09zrSbuhjmRY9vP2x8O1PhR9SHsFXJwz1MzbzeFmQxN2c2+cjFfQsT6iEvXMjT6vXajoq87MkFEsx8uz2ZB3t3Ns6EqG+JO2H8BnuC0h8Z5Ebx+gBwN3hkq0uBAt6ObwDPg8z1A4Hc2AwrO8fVGmPB779c/6VrjiokOo+f08fMRpFuCqeeM85/LCKd6yjcqU6Fg7eKsbiPd4pvMIj/Qw65X0hENF2gMysdxO+cxwjZLMsPxISm8Jlx314KKEm5xrcIrKT9qUsMlS7Bo39ek1nM4aenQ5neoeKrvM7VTwBkfv1W5B/uAF3sY07qNF7TLncRlOJBakJ2SGUTLKYxvIr8MUaHU8LLenQQl7eNOdadsu5SpeJMMaTMkjRKL3rq3bLKAsywIBWpt4yCsQuHJaTxhhAcOvIvcSbYmWODZTqSs8LhO8dVz8OWa8b2K09VNfuqm3KWD13I5WyDANBuUYt+yrgeWDEk67hSxW09x/1jYbzpY4CsWMPcEEvywVaUs9VmSOmGRqDmIWKOP6Kv1FFpm8/l3FMzjHfP9VFZ87iWRNRApcR5pVc+nClWnWdGjevVsSUVkt1dbA3jen2zAsh2qLdbN2h7GfsDAcc4hrJuqI4si3DB1WMGsqwk98MfFEsXXbt4zahJ/jDKpziyhgncMFY8JMuB5lFg+DjKyeXa/detKP8wENfUCWLdgHCrqV8g65RNaMKwPG62ki1sMh7GSSxP13axXXLRm/EeuQgjBZHAgl7IJ1Mv8XFPQuhm6nY694zUZfDa17demRPZy1UQuBEv5yZFYTWmm7RvCSLiXVkCeTr9kjOQf1CvjW2Qu2Hs7aqEaQBcNMXqET74al10ZwBq8zktY6sgx6eWGXuGot2WH2bF/iQ28ienKAB1mc6sOrkZC0/bw+x4r7rNsW6Wd49kak3gKGWd9urTOs9lMZ6+FyWiWMDixqNLN36ZtV4ZAP2A8+FedRs0C06vv696iEz3TWRlknE+8RI9r5RnM49+bRHxUKz7K1K8rF+LG5CtiuJYsSy6s1kA5oHatsAQ6yeH+e+uZR2bZQi7zdzpvZ7eZhJ+xYhj/JCthmkS207177aI2V1UMWLYpRKnOW4zjXrbBY6Fp6XUfBsaJGbzeHG5RPuJcI6QpE5Na9+gZyO5nfGC2njhaWlmQszi3UQm9Po2+sQPxkr7azeG8k8w5awP89Z0klifUD9o3RHseT/gPG2cTn/wCwDOwSlGam5AAAAABJRU5ErkJggg=="
+                                                            alt="" class="info-content-title-icon"> 患者家庭年收入
+                                                    </div>
+                                                    <div data-v-7b796d68="" class="info-content-info">
+                                                        <div data-v-7b796d68="" class="info-content-info-top">
+                                                            10000元
+                                                        </div>
+                                                    </div><!----><!---->
+                                                    <div data-v-7b796d68="" class="info-content-title"><img
+                                                            data-v-7b796d68=""
+                                                            src="data:image/png;base64,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"
+                                                            alt="" class="info-content-title-icon"> 患者家庭债务情况
+                                                    </div>
+                                                    <div data-v-7b796d68="" class="info-content-info">
+                                                        <div data-v-7b796d68="" class="info-content-info-top">
+                                                            债务金额:200000元
+                                                        </div>
+                                                    </div><!----></div>
+                                                <div data-v-7b796d68="" class="info-name name1">
+                                                    <div data-v-7b796d68="" class="info-name-order">2</div>
+                                                    保障情况
+                                                </div>
+                                                <div data-v-7b796d68="" class="info-content">
+                                                    <div data-v-7b796d68="" class="info-content-title"><img
+                                                            data-v-7b796d68=""
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAFjUlEQVRYCZ1Xa2xURRT+zrZFKlAx2mgAk0pRCEpitNbE8KMRFYxK1JIGQwxaY0lA0S210hhNNba1UGgUEsQGFTS8pEF84g8fmEgg0GAURTEIPn5oFEmLxdrHHr8ze+/de7u7bekkc+fMec+ZM2fmCkbTanUK+vE4FIsg6KGKTYQ3oFX+Pl91MmIBVUENbqWhRyhzL1Rzo7Jyjs5sQwxtaJGDUVr22fAOxHWWMyh4kEavDFSJJAjvZ88n/oYAb4DIN/y+gRzswWo5EaENmqQ7UKuTGN4S8s3haucDWhSRETnL+RYqf4nKf3S0Wi2hTA3h8rTIiHxHPe8iF5+xd6BJTof1JR2I60NErmAIp1JBfpghgEUOEW5DAcNcL/8E+DAQ18nUsYQGq+j4ZWFSCqas4Bi36jlu1Qe+A0wkvSDFZJBj7CDzHuRhN16UU1H6ELOdmoMDKKMjFZS/j4u6NJ1bjjFpZ3oOJNQxiHzCcS1D9TVWyW/pQqPAWPKuxEz0YhaducqLzhQu8Cc6UBzN5BieYFiOZjRjqzqIh7n3++jcD4jrPCqcnZEX+I/4HVgrx5mQtrhvvQ5U63E6sd2Xizog+NcnpI0HuA7VF6DyFlZoAxL6ERVlbyKLSZyWxhDDaQyksFEHUvgoFGdiKguPtRjeQwJXO9gyHPjDwdFPKZ0txkbNwxLpi5Kis5E5kKwBhdy3UyhFOxPsTqdG0cB93BpVyVlcbRuvScNnQMQy4KKoGh3H1dc6pPDsV0gogFHW0cyGj8AAT4VfjARfOiPKnLYmeJNJtdnB4Y+VaZFeXMzNGqYNHYFqvYvGq9J0XITPaaCD+xxjz011nhFlF7Fkbh5JtLJHwEpyH15LM26IerEbsAT1Ot7RO/E6HV3ABK3AGtnlcCP8ZHdggDUBWsjVbKGum7nKaU5ntV7BcT7Dnwu7FZJtqjeWMwFn+Ejy9LGKbkOz/BLgBgHZHcjBTp75M5iOFnzvCokv2kRnFmWsAQld6DO50epEn0zmd3kEH5pkd2CVHCafdTtWbnCfPDShV352EQAeI87ukJN0qpjROuGNR4hrdxFQRmCIlt2BbELNYmX1aVbDxayGvDnFTsE49mL2RjrRwnEG82Ery/pJwkO26Cnop88jaXXMjQSzXJiMgmcCEYE9yRoZhXzSNzBJo/qN0U5JqHkMXrmM4fIQLTNomd+DD6nJ7vtmXji/RhiLsI6OHaUTc9HFwjW4KYo8lCvRvocWVvNujkfMPnQyOcEXkMjHfJw8n8a4XOwmLCf9LJ14lFs1uI7M82SczaQDgnc8ZBXDNjZNqY8QTGDI51L5CYzB/awHmSudu4ZRST6rmKmHTpxHWXG3UxdL2kw6MBavkrmbHk9i2Bp8e6Gx28GK33n6b+IuzuYL6UxAF5xzcMwbbWIFaTrGc1znaPYwAfMCfFeAj50JeNvwqaSr1jo60EiUMoOXUvAVJ2ifuJaS81rud+bKuFKn8na4g1uykVHpD+TCQLW2Uj+LG5vIQura4UCHsI9lbBf2kuk2hxNppsJnqTB58QSM5wnYbZrAy9Rb6elto/EgL5JbYBTbzwI+IEW+cIyqT6ETh1Cjt7j5aD5P6u00/lVgPCbbaWNpWFVqC3xsvV5Iwwy/PuCj6NR+bsF67lv7sBGx15NdSoplNHxjUge3VbCaxuvcQgPF4RwIIR0Yd3V9PR25JEWSP6loFw3s4stoX3Dd1usYdKOMbz0zXE6ZiYGMsGzHeCJa5NMAFwLSIxAiMi8mMi/sJ3QZlRaGSYzKX5wfIS2P4/WkFwyi233RyqhZYvZEaKHJ0A74jFYburCA00oaLKOxLHKuou7lMd3ECL0fRMjXk2HMoigDp4+yX/MBhjmBe4i6jt1K6mGudrfra1xkfO5hx/8BE9y7CYBWmZ4AAAAASUVORK5CYII="
+                                                            alt="" class="info-content-title-icon"> 保险情况
+                                                    </div>
+                                                    <div data-v-7b796d68="" class="info-content-info">
+                                                        <div data-v-7b796d68="" class="info-content-info-top">无人身险 |
+                                                            无财险 | 无医保
+                                                        </div>
+                                                    </div><!----><!----></div>
+                                            </div>
+                                        </div><!----><!----><!----></div>
+                                </div>
+                                <div data-v-5cdb7624="" class="progress-list">
+                                    <div data-v-5cdb7624="" class="list-style">
+                                        <div data-v-5cdb7624="" class="style-img">
+                                            <div data-v-5cdb7624="" class="style-img-none"></div>
+                                        </div>
+                                        <div data-v-5cdb7624="" class="style-line style-line-two"></div>
+                                    </div>
+                                    <div data-v-5cdb7624="" class="list-content">
+                                        <div data-v-5cdb7624="" class="list-content-name"> 提现公示 <!----></div>
+                                        <div data-v-5cdb7624="" class="list-content-tip"> 项目通过最终审核后，可随时申请提现</div>
+                                        <!----><!----><!----><!----><!----></div>
+                                </div>
+                                <div data-v-5cdb7624="" class="progress-list">
+                                    <div data-v-5cdb7624="" class="list-style">
+                                        <div data-v-5cdb7624="" class="style-img">
+                                            <div data-v-5cdb7624="" class="style-img-none"></div>
+                                        </div>
+                                        <div data-v-5cdb7624="" class="style-line style-line-two"></div>
+                                    </div>
+                                    <div data-v-5cdb7624="" class="list-content">
+                                        <div data-v-5cdb7624="" class="list-content-name"> 筹款到账 <!----></div>
+                                        <div data-v-5cdb7624="" class="list-content-tip"> 瞅瞅平台不收取任何服务费，公示通过后开始打款。
+                                        </div><!----><!----><!----><!----><!----></div>
+                                </div>
+                                <div data-v-5cdb7624="" class="progress-list">
+                                    <div data-v-5cdb7624="" class="list-style">
+                                        <div data-v-5cdb7624="" class="style-img">
+                                            <div data-v-5cdb7624="" class="style-img-none"></div>
+                                        </div><!----></div>
+                                    <div data-v-5cdb7624="" class="list-content">
+                                        <div data-v-5cdb7624="" class="list-content-name"> 治疗花费进展 <!----></div>
+                                        <div data-v-5cdb7624="" class="list-content-tip"> 发起人需按平台要求持续公示患者治疗花费进展
+                                        </div><!----><!----><!----><!----><!----></div>
+                                </div>
+                            </div>
+                            <div data-v-34eb6d1c="" data-v-021aa736="" class="statement">
+                                <div data-v-34eb6d1c="" class="statement-top"><h1 data-v-34eb6d1c=""
+                                                                                  class="statement-title"><i
+                                        data-v-34eb6d1c="" class="sd-icon-statement statement-title-icon"></i><span
+                                        data-v-34eb6d1c="" class="statement-title-content">平台声明</span></h1><span
+                                        data-v-34eb6d1c="" class="statement-check"> 查看审核流程 <i data-v-34eb6d1c=""
+                                                                                              class="sd-icon-arrow statement-check-arrow"></i></span>
+                                </div>
+                                <p data-v-34eb6d1c="" class="statement-content"> 该求助信息属<span data-v-34eb6d1c=""
+                                                                                             class="statement-bold">个人求助</span>，不属于慈善公开募捐，<span
+                                        data-v-34eb6d1c="" class="statement-bold">真实性由信息发布者完全负责。</span></p>
+                                <p data-v-34eb6d1c="" class="statement-report"> 瞅瞅邀大家全程监督信息真实性 <i
+                                        data-v-34eb6d1c="" class="sd-icon-arrow statement-arrow"></i></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-34fcd6b8="">
+                <div data-v-bf8546d0="" data-v-34fcd6b8="">
+                    <div data-v-0cd51d08="" data-v-bf8546d0="" id="js-prove-module"><!---->
+                        <div data-v-4ed778f4="" data-v-0cd51d08="" id="proveList" class="none-verification">
+                            <div data-v-4ed778f4="" class="none-verification-tips"> 帮 <span data-v-4ed778f4=""
+                                                                                            class="none-verification-tips-text">【求助人】</span>
+                                说明相关情况，让患者得到更多帮助！
+                            </div>
+                            <img data-v-4ed778f4=""
+                                 src="https://static1.shuidichou.com/cf/img/ic-help-prove.146cda0d.png"
+                                 class="none-verification-tips-icon">
+                            <div data-v-4ed778f4="" class="none-verification-link"> 我要说明</div>
+                        </div><!----></div>
+                </div>
+            </div>
+            <div data-v-9d91d042="" data-v-34fcd6b8="" hassupported="0">
+                <div data-v-9d91d042="">
+                    <div data-v-e2dd4bda="" data-v-9d91d042="">
+                        <div data-v-e2dd4bda="">
+                            <div data-v-e2dd4bda="" id="progressList" class="div-progress">
+                                <div data-v-e2dd4bda="" class="div-title"><p data-v-e2dd4bda="" class="p-key">
+                                    筹款动态</p></div>
+                                <div data-v-e2dd4bda="" class="content">
+                                    <div data-v-e2dd4bda="" class="left"><p data-v-e2dd4bda="" class="time">2天前</p>
+                                    </div>
+                                    <div data-v-e2dd4bda="" class="no-border right">
+                                        <div data-v-e2dd4bda="" class="div-top"><p data-v-e2dd4bda=""><img
+                                                data-v-e2dd4bda=""
+                                                src="https://avatar.shuidihuzhu.com/Q3auHgzwzM40Vic17GHmU6ZfnMP2qITp1V0ia2ReZxmpQTWQwKuTD1dfVFWkQ06icWAI1gKYtbgfRWWN0BBMEicL6WclUuMW09vaiaoqzUT7BoU0/132"
+                                                class="img-head"><span data-v-e2dd4bda="" class="nickname">A                          y😱</span>
+                                            <span data-v-e2dd4bda="">发布进展</span><!----><!----><!----></p>
+                                            <div data-v-e2dd4bda="" class="img-comment"></div>
+                                        </div>
+                                        <p data-v-e2dd4bda="" class="p-comment"></p>
+                                        <div data-v-e2dd4bda="" class="trend-img"><img data-v-e2dd4bda=""
+                                                                                       src="https://image.shuidichou.com/img/ck/20200604/1591246464376wDnFy8Nipi1591246464376.png!cf_mtr_200_nw">
+                                        </div><!----></div>
+                                </div><!----><!----></div>
+                            <div data-v-e2dd4bda="" class="divider"></div><!----></div>
+                    </div>
+                </div>
+                <div data-v-9d91d042="">
+                    <div data-v-3a7fe6c0="" data-v-9d91d042="" id="js-contribution-module" class="div-help">
+                        <div data-v-3a7fe6c0="" class="no-help-raiser" style="display: none;">
+                            <div data-v-3a7fe6c0="" class="panel-title">还没有收到爱心帮助</div>
+                            <div data-v-3a7fe6c0="" class="guide">
+                                <div data-v-3a7fe6c0="" class="guide-tip">只有转发才可能收获爱心帮助<br data-v-3a7fe6c0="">快去邀请你的好友帮忙转发吧
+                                </div>
+                            </div>
+                        </div>
+                        <div data-v-3a7fe6c0="" class="no-help-raiser" style="display: none;">
+                            <div data-v-3a7fe6c0="" class="panel-title">还没有收到爱心帮助</div>
+                            <div data-v-3a7fe6c0="" class="guide">
+                                <div data-v-3a7fe6c0="" class="guide-tip">没有筹到钱？<br data-v-3a7fe6c0="">去发起一个新筹款，多多转发就可能筹到钱
+                                </div>
+                            </div>
+                        </div>
+                        <div data-v-3a7fe6c0="">
+                            <div data-v-3a7fe6c0="" class="div-title"><p data-v-3a7fe6c0="" id="helpPanel"
+                                                                         class="p-help-tip">爱心帮助记录</p><!----><p
+                                    data-v-3a7fe6c0="" class="text-contribute-number"> 32 次转发 <span
+                                    data-v-3a7fe6c0=""> / </span> 27 次帮助 <!----></p></div>
+                            <div data-v-3a7fe6c0=""></div>
+                            <div data-v-3a7fe6c0="" infinite-scroll-distance="50"
+                                 infinite-scroll-disabled="disabledInfiniteScroll">
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/icGYw95jPibIZbgUaGab9OyeWGrH9DNpIff0eubJ8vMsXqwW89qxia9tksrgf8dTRxXD8UZSIQ3h09eicVrWEecEMg/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 大耳朵图图 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">1</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 尽些绵薄之力，望早日渡过难关！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 5枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                   class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/7N2JRaWooRAVNibfPEK7eL5JkkENTxLEcQf0UsAbk7MaM2CvZt9UnSMCRFBmLNib5A3EGMwfbhOuiblttXGPQZRib1HS6S6sicdRk/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> Fei  Bei🌝 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">20</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 一切都会好起来的！加油！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 20枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/ajNVdqHZLLBX0tX9Ld0SLKK0lod72vNz0hEAMpgdpygljzQkZ8k5yGz7nxzR5RXvojxjr0OUDiaYVhEgxQSChqg/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> A彬 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">20</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment">
+                                                只要人人都献出一点爱，世界将变成美好的人间，祝早日康复！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 575枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                     class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/uDBuwv7MErOKEBBLfQMwt06mxJTDnV1vcbWuOZiaQHn9ibIxeOu7l4m4SObiahjDbuJ5wnEOmMyjp5LFrsOElHjNnJtCSk0dT9n/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 李 毅 鑫 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">20</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment">
+                                                只要人人都献出一点爱，世界将变成美好的人间，祝早日康复！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 5枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                   class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/iaibicK6vE1fQ5iatpNRmVMW5nve4KL5sUDribTN1ywKibsdvRVJ9zLTRJNfKyqwDItMgHcGDdfMHqmohicibyGTMROziaw/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 田田's mommy👿 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">10</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 祝早日康复！顺利度过难关 </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 110枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                     class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/uHIWUauTYQUSoXhAhOmia9WyHmBHZibNUdpNamSEdR7kfgJldpzUUPs8dGNT4IwfDIUK9k0jibCfgiarOEOuic9Ba9A/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 光光 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">10</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 加油，坚持！相信一定战胜病魔！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 5枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                   class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/brFexbaia3ZdIFsatFVtw7VS3LiapnqV9e9XnUWzcnUR7IibJ58Tofy8icWicjZIcG91WNgvicibrtWgsNhQp2JibtLfHgytalfvzQW9/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 强强 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">20</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 祝早日战胜病魔!加油！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 20枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/DYAIOgq83epc99PnN1tg37CO8rtFKc5HZnjRyXrnia443EGY2z6JkqZicOIMfBQAXwjXEMHHtJicISibx2SjWCG6zQ/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0=""
+                                                    class="nickname"> 🔥🇨🇳劉🔥聖🇨🇳🔥 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">10</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 祝早日战胜病魔!加油！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 55枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTJO58hUEwHTSia389HyEZVYE46BKUQsatmt86LkCsvLpPcW3XibEZKp2mdACc4MH6a3ic6ibCKIyK2LXQ/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 啊皓 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">200</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment">
+                                                我们的小善举能帮助一家人，值得！希望你们不要放弃，早日康复。 </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 250枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                     class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/DYAIOgq83erpmgD3dYxbiaFOpSUJ9sXgbo3CNdfvgG3YXAz39uw2jl7MicaMHFPWEEJSnCWXzuz7SAQK2XDz112Q/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 🐻 大石熊 . </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">1</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 祝早日战胜病魔!加油！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 20枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/ajNVdqHZLLCEjnI0v3Yy1PpG9g3qTXECltXEic5NGSMyjjSRkFkJNZ40jG0GMC33ZBj5Dcfe8ORXNTjkb6ibhE6g/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 🙊🙊猴子大王🙊🙊 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">20</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 愿早日战胜病魔！好人一生平安！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 65枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/uDBuwv7MErOKEBBLfQMwt84KDkibSGaGhCdKjMkaJKIzoS7icAA4tHPawlbPNe7xauphXPqGWwILCujmPkWcswWU1LjbKYMQEt/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> F e i </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">50</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 祝早日战胜病魔!加油！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 155枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                     class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/Nsss2mEF3KCK0LkkCJibsrATIH9Kic3VUUiayJCFq54NJianl4OrpzCXluVnH7HTwovxWscO7deyeuXTSxMVtJT2HQ/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 思宝宝. </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">10</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 加油，坚持！相信一定战胜病魔！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 145枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                     class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTLqHftpcZg7icUa0tvOPa83JsPFTcIfhYzcojKquiaG0E7oyQdnu14jg2abaSvybSXnTYOsCtzazA8g/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 💋❄️小倩🐶🌸❄️😊 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">5</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 祝早日战胜病魔!加油！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 25枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/DYAIOgq83eqKb4BH40cJPjGtp3O5qmBjshAeGvTblkFscNjXQq7ajnB5TOS8n0XXkDTycScpzUpXqg8gtn9HIQ/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 锕锕锕锕锕平丶 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">10</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 尽些绵薄之力，望早日渡过难关！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 10枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/appoRZQvmhgZzYYfIyX6IFDgwvOYzicFpuIg7xa2jVNfzDFHbloZhI27D0Ivj9U1zckibwYr0rbQharmicFNuMI0g/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 曼 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">20</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 尽些绵薄之力，望早日渡过难关！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 5枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                   class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTKTAKspiaW6t3N7pByzgjO38oUKXL2BZtNbzmtk5rzFKE45AmOcrV9Jxpn5EdjaLHRh8uJHS8deo1w/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 小燕 </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">100</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 尽些绵薄之力，望早日渡过难关！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 5枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                   class="time common">1天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/Q3auHgzwzM7yTQy97uynHiasAInOgTte8V98rK27YcAa3LP5r5w9aoLm6ZI68rW9oajFyr3LMsVuv4Vopg8j3rw/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 野！ </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">10</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment">
+                                                只要人人都献出一点爱，世界将变成美好的人间，祝早日康复！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 5枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                   class="time common">2天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/PiajxSqBRaEJ045jdJCtSaiaZRrXBZdmzqdRT0qBfXk5TNNYD875PQ6TLYd2icUlBnp7Zetme8uIictanGjq2icAibiaw/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> D. </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">10</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 尽些绵薄之力，望早日渡过难关！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 10枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                    class="time common">2天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-3a7fe6c0="">
+                                    <div data-v-3a7fe6c0="" class="content">
+                                        <div data-v-66966df2="" data-v-3a7fe6c0=""
+                                             class="fav-value-tip-wrap fav-value-tip-wrap-contribute"
+                                             style="display: none;"><img data-v-66966df2=""
+                                                                         src="https://static1.shuidichou.com/cf/img/di-3.7ff01645.png"><span
+                                                data-v-66966df2="" class="content">爱心值代表你在平台的爱心贡献度，爱心值越高，你的爱心等级越高。转发、帮助、帮患者说明情况，这些爱心行为都可以收获爱心值哟。</span><span
+                                                data-v-66966df2="" class="arrow"></span></div>
+                                        <div data-v-3a7fe6c0="" class="left"><img data-v-3a7fe6c0=""
+                                                                                  src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTI1MqK71ITCXeHibrToQ5bbETFHwWibnXz8GFLnrkWXH7pYtK5SM3mTgKtIEEwLXLwEm4hbADSLAdFQ/132"
+                                                                                  class="img-head"></div>
+                                        <div data-v-3a7fe6c0="" class="right">
+                                            <div data-v-3a7fe6c0="" class="div-top"><p data-v-3a7fe6c0=""
+                                                                                       class="p-help-deco"><span
+                                                    data-v-3a7fe6c0="" class="nickname"> 桃發發° </span><span
+                                                    data-v-3a7fe6c0="" class="money-comment"> 帮助了 <em
+                                                    data-v-3a7fe6c0="">100</em> 元 </span></p>
+                                                <div data-v-3a7fe6c0="" class="img-comment"></div>
+                                            </div>
+                                            <p data-v-3a7fe6c0="" class="p-comment"> 挺住！困难是暂时的，一定会渡过难关！ </p><!---->
+                                            <div data-v-3a7fe6c0="" class="other-info-comment">
+                                                <div data-v-3a7fe6c0=""><span data-v-3a7fe6c0=""
+                                                                              class="water common"><img
+                                                        data-v-3a7fe6c0=""
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAA/1JREFUSA2VVGFsU1UUPue+rvStc7Ax7ba2TPlhojijoBEjIQSNBpQ/Zd3IlIgS94e/ZpIYk0aNsvnDkJhggmYqQbJ0HS7ww4ABgjqBMEfCJFESgu61jZmbdG596/rePZ77mteU0o5xf7xz3rnn++455557AJax1lHUuwy3ogsWtSrKqvSuB3N2/jgQ3PT5xZ5/G+OZKq5F85Kktemup8nOnySCBxwEwh9ewldmw4nrRYYKiqhgc0x+o+N5aVtnHEKE04h4haN9OI80qhvRZ6vhlL0iaZ0R3WoTnQSiOiY7sjH4+PZ6T+0m1lXUTQTydN1kx5ZqxHekrxtdGwmsH5jQzySHssGhfSxJEUQpqp1I2oc54jcAIcshbVtoHT5fTn4bqZ6KrgFpX+JoAgwaMIOJvS6hCyQi1I2OwwC0FwEzWo1n01zz4IS7r2QxfadtpBxxCAFP7Qhqb5UTKoCy7Q+19zDhCAGttPLWyMpb3Q1qz11F0hsGfcBRPMGo67pfdMYxbrtO5TKGMdmgre7mA8Y44rWLc7kvSn2c9GuTO5+UBJd5g7h6z5nhxMVSp1J9C8U8F5NXB9hzYoXHM5iz8ldUxIii0wwNxZWvEykTfsgXI/iEg0sRKsA5jFm67tvHRD2LMt/O0b6j7Jxl3wbqqVG6qEtHH2XLdq7WrAf8Hynj3dbM6qOzKHA31/+zVcHcEcZeY9qHfkvPdCqskJbsckgEDP4X+mb6boTuvhkcGuXWGr+V8u7iFA86dlu+pqTgIm51FAnfORv38tHE15x2RGjiuAND2ByjmOCa4hpl8AAs+Z4rnbUCtXF+FevmWuJTfB9pjry2f/KvZsEFlwpAQh1wb8umvI+DypWiSMtqXA5MKaNEaivdXI5uS9jMLTgWoqhOCM3c4zLQ6psS3G8/OaSSXloOkevTNPXmfZzl+6jBp9NJuYNTRy7B+E38akEAaoUiA+xunH613gUtJVU/zuUyY0w02tvS/iv79hb86ZiSwgwNXuAS/Mi3eL9pmh8XNqt/1RS7ZvzzMxJdMsPDkQPJiXcZu4EfwZ8NoumQQhaeaaprPQ/kX/i6vAhivxke6iun1Sd3fst1e0q9Hb6I/mxw+Es9Genla+5TtdSEeHm+Nf59kVQpeirSTTYcdYyICW8N9GYCiRvqXy0VoSYg83bLI79/Ylx9zEY4wPzb1B7XsCcbTvA4LCwnUvdHn+yIcPEHOJp6zsFi+1mGnGNpcMN5QUIbT/0XuDefKVwMzqCAPdlg4oTLoeRtpMrgS0XawMb3AOl1BvKbqLB46vM9fC5qvP3zgWN/l3vcQeo6qMG7OL/wIkixnudygCeZJZBS3IIXGkPirIFx0/Utl/8DfgORpzAKteYAAAAASUVORK5CYII="
+                                                        alt=""> 5枚爱心值 </span><span data-v-3a7fe6c0=""
+                                                                                   class="time common">2天前</span>
+                                                    <!----></div>
+                                                <div data-v-3a7fe6c0="" class="tools">
+                                                    <div data-v-3a7fe6c0="" class="tools-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-08987e0c="" data-v-3a7fe6c0="">
+                                        <div data-v-08987e0c=""></div>
+                                    </div>
+                                </div>
+                                <div data-v-732cbb82="" data-v-3a7fe6c0="" class="loading">
+                                    <svg data-v-732cbb82="" viewBox="0 0 64 64">
+                                        <g data-v-732cbb82="" stroke-width="4" stroke-linecap="round">
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(180)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values="1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0;1"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(210)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values="0;1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(240)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".1;0;1;.85;.7;.65;.55;.45;.35;.25;.15;.1"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(270)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".15;.1;0;1;.85;.7;.65;.55;.45;.35;.25;.15"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(300)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".25;.15;.1;0;1;.85;.7;.65;.55;.45;.35;.25"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(330)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".35;.25;.15;.1;0;1;.85;.7;.65;.55;.45;.35"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(0)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".45;.35;.25;.15;.1;0;1;.85;.7;.65;.55;.45"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(30)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".55;.45;.35;.25;.15;.1;0;1;.85;.7;.65;.55"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(60)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".65;.55;.45;.35;.25;.15;.1;0;1;.85;.7;.65"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(90)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".7;.65;.55;.45;.35;.25;.15;.1;0;1;.85;.7"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(120)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values=".85;.7;.65;.55;.45;.35;.25;.15;.1;0;1;.85"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                            <line data-v-732cbb82="" y1="17" y2="29"
+                                                  transform="translate(32,32) rotate(150)">
+                                                <animate data-v-732cbb82="" attributeName="stroke-opacity"
+                                                         dur="750ms"
+                                                         values="1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0;1"
+                                                         repeatCount="indefinite"></animate>
+                                            </line>
+                                        </g>
+                                    </svg>
+                                    加载中...
+                                </div>
+                            </div><!----></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-v-34fcd6b8="" class="footer">
+        <div data-v-34fcd6b8="" class="footer-normal">
+            <div data-v-34fcd6b8="" class="normal">
+                <div data-v-34fcd6b8="" data-ext-info-is_owner="2"
+                     data-ext-info-case_id="56709ec7-03dd-4b26-a3f5-d1521e8eadaf" class="turn">
+                    <div data-v-34fcd6b8="" class="share">
+                        <div data-v-34fcd6b8="" class="share-icon"></div>
+                        <p data-v-34fcd6b8="">32</p></div>
+                    <div data-v-34fcd6b8="">
+                        <div class="pray">
+                            <div class="pray-icon-wrap">
+                                <div class="pray-icon"><img
+                                        src="https://static1.shuidichou.com/cf/img/fighting_1.53617cd9.png"></div>
+                            </div>
+                            <div class="pray-text">加油 <span>2</span></div>
+                        </div>
+                        <!---->
+                        <div data-v-176f72de="">
+                            <div data-v-8afdae6c="" data-v-39e75e37="" transition="fade" class="overlay"
+                                 data-v-176f72de="" style="display: none;">
+                                <div data-v-8afdae6c="" class="dialog hidden" style="display: none;"><!---->
+                                    <div data-v-39e75e37="" class="dialog-container">
+                                        <div data-v-1215d294="" data-v-39e75e37=""><!---->
+                                            <div data-v-1215d294="">
+                                                <div data-v-39e75e37="" data-v-1215d294=""
+                                                     class="bg-img bg-img-normal"><i data-v-39e75e37=""
+                                                                                     data-v-1215d294=""
+                                                                                     class="user-guide-111-whale"></i>
+                                                    <div data-v-39e75e37="" data-v-1215d294=""
+                                                         class="floating-layer"></div>
+                                                    <h1 data-v-39e75e37="" data-v-1215d294="" class="bg-title">
+                                                        加油成功！</h1>
+                                                    <p data-v-39e75e37="" data-v-1215d294="" class="bg-content">
+                                                        一念之善或可帮助患者摆脱病痛折磨</p><span data-v-39e75e37=""
+                                                                                  data-v-1215d294=""
+                                                                                  class="close"></span></div>
+                                            </div>
+                                        </div>
+                                        <div data-v-39e75e37="">
+                                            <div data-v-39e75e37="" class="title-info">
+                                                <div data-v-39e75e37="" class="text">请选择帮助金额</div>
+                                                <div data-v-39e75e37="" class="help">
+                                                    <div data-v-39e75e37="" class="anonymous"><input
+                                                            data-v-39e75e37="" type="checkbox" name="anonymous"
+                                                            id="anonymous"><label data-v-39e75e37=""
+                                                                                  for="anonymous" class="box">
+                                                        <!----></label></div>
+                                                    <label data-v-39e75e37="" for="anonymous">匿名帮助</label></div>
+                                            </div>
+                                            <div data-v-39e75e37="" class="container">
+                                                <div data-v-39e75e37="" class="amount-list">
+                                                    <div data-v-39e75e37="" class="item"><span
+                                                            data-v-39e75e37="">10</span><span
+                                                            data-v-39e75e37="">元</span>
+                                                        <div data-v-39e75e37="" class="checked-wrap"></div>
+                                                        <div data-v-39e75e37="" class="check-icon"></div>
+                                                    </div>
+                                                    <div data-v-39e75e37="" class="item checked"><span
+                                                            data-v-39e75e37="">20</span><span
+                                                            data-v-39e75e37="">元</span>
+                                                        <div data-v-39e75e37="" class="checked-wrap"></div>
+                                                        <div data-v-39e75e37="" class="check-icon"></div>
+                                                    </div>
+                                                    <div data-v-39e75e37="" class="item no-margin"><span
+                                                            data-v-39e75e37="">50</span><span
+                                                            data-v-39e75e37="">元</span>
+                                                        <div data-v-39e75e37="" class="checked-wrap"></div>
+                                                        <div data-v-39e75e37="" class="check-icon"></div>
+                                                    </div>
+                                                    <div data-v-39e75e37="" class="item"><span
+                                                            data-v-39e75e37="">100</span><span
+                                                            data-v-39e75e37="">元</span>
+                                                        <div data-v-39e75e37="" class="checked-wrap"></div>
+                                                        <div data-v-39e75e37="" class="check-icon"></div>
+                                                    </div>
+                                                    <div data-v-39e75e37="" class="item"><span
+                                                            data-v-39e75e37="">200</span><span
+                                                            data-v-39e75e37="">元</span>
+                                                        <div data-v-39e75e37="" class="checked-wrap"></div>
+                                                        <div data-v-39e75e37="" class="check-icon"></div>
+                                                    </div>
+                                                    <div data-v-39e75e37="" class="item no-margin"><span
+                                                            data-v-39e75e37="">500</span><span
+                                                            data-v-39e75e37="">元</span>
+                                                        <div data-v-39e75e37="" class="checked-wrap"></div>
+                                                        <div data-v-39e75e37="" class="check-icon"></div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39e75e37="" class="input-amount-wrap"><input
+                                                        data-v-39e75e37="" type="number" pattern="[0-9]*"
+                                                        placeholder="其他金额"><span data-v-39e75e37="">元</span>
+                                                </div>
+                                                <div data-v-39e75e37="" class="middle">
+                                                    <div data-v-39e75e37="" class="choose-total"><img
+                                                            data-v-39e75e37=""
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAqVJREFUSA21VktoU0EUPfPymo8STAQ3pa2xtdqdorSK+ANFFwUlBUGhoIIFV0VFXAlSUSgudONOxQ8FXaUoZCn1QzfWD4qCtCYWrWkXVqtPxIQk472TvEfey4tJmzqLvJk75557Z+Z+IvCP0fN6qElm8vsB2Q2JNgg0KrhEiuYJQMSFV7sfW9c7VYlGuG0cfHm3MZ3NDNDeUQnpccOYMgGRo/lNn+49d2/DoZQpN79lBnrGbu3LSwwRIGiCavwamkBvrPPIg1K8VrqIPr/TL4Fhks2XnGmCrMscpZzWCdhzBkgJm9FScC1zIZAn0qh5EmWA7/xPNv2evaiFpAaM4dd9Hfwmytvigy4WOdsPFjkhVCimc5PVoqUGr20Qji7h80Q0jvN6yZd6vDZyXjAnc9MVURItcOhCw9n2Xbix/gC8mlu6yG5NZegCDDD5mdU7sTHUhBdzU8jkOd8cg7Jfs9LfsefXdBxfuRmRQNixA3goFk+37UBnqBlj3z/jcvJJGUYJqLRUjPlQQwC7V7TjfMdemxH26FTrdmwKtyjPLyUeIUfJU2nwFZXVDwbPpA1cST7FEk8DBtbuQUsgRBkocKJ1G7Ysj+DVjy8Y/DCCrMxX4uaXTumqKkqscUONfpsE33X/qq3KyPivr+gKN+PNz2kMTlQhZ0KquHRFIu5GbsoezyZx9eMolul+Rf7OmMHFiYfISJdHNZWsr4hrXM+LJdcSOycjswnEpt/i0+85XBgncreIcSipRFPctBF9dvsaJcYxB6auJRm4Ptx1uE9FETcLYjPqYrQrG0XOQmlWVY+aBZdaO27+K+bgxmN2NysPVP0W2sl6jChd4jB7AbtnNRzT1//aMtkIW+dmwY9ULboYr6KFsKxT6jnv8Sg7QUFc+F2Mvy1/AdOS73WOCzibAAAAAElFTkSuQmCC"
+                                                            class="chooseImgs">
+                                                        <div data-v-39e75e37="" class="protocol">我已阅读并同意<span
+                                                                data-v-39e75e37="">《用户协议》</span>和<span
+                                                                data-v-39e75e37="">《隐私政策》</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button data-v-39e75e37="" class="weui-btn footer weui-btn_default">
+                                            <!----> 献爱心
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-v-8b872260="" data-v-34fcd6b8="" class="donations-button">
+                    <div data-v-8b872260="" class="donations-button-element"> 我也来帮助</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-v-34fcd6b8="">
+        <div data-v-48b97d34="" data-v-34fcd6b8="">
+            <div data-v-48b97d34="">
+                <div data-v-48b97d34="" class="broadcast-list-wrap show-list-animate" style="bottom: 3.8rem;">
+                    <div class="list-wrap">
+                        <div class="list unset-transition" style="transform: translateY(-238px);">
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTI1MqK71ITCXeHibrToQ5bbETFHwWibnXz8GFLnrkWXH7pYtK5SM3mTgKtIEEwLXLwEm4hbADSLAdFQ/132"
+                                        class="avatar"><span class="nickname">桃發發°</span><span>帮助100元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTKTAKspiaW6t3N7pByzgjO38oUKXL2BZtNbzmtk5rzFKE45AmOcrV9Jxpn5EdjaLHRh8uJHS8deo1w/132"
+                                        class="avatar"><span class="nickname">小燕</span><span>帮助100元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/3H46J0twia5icbDAzCrkibYWm4h6ea7gvaUBD1g1RkYYAyP5Tbb95W5OftibFyOuibPaQVTSSY5ia5OkXSAegRoibc3epY7N7PMWHCp/132"
+                                        class="avatar"><span class="nickname">F e i</span><span>帮助50元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTJO58hUEwHTSia389HyEZVYE46BKUQsatmt86LkCsvLpPcW3XibEZKp2mdACc4MH6a3ic6ibCKIyK2LXQ/132"
+                                        class="avatar"><span class="nickname">啊皓</span><span>帮助200元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/DYWMWPyQT1KNpzVKeBbBPpaTdbiaOIZZHmCjfS8vjPhGReJxXPtx7icyjia7jW52nlEqGrW1D2Pk53zODBKJyUepA/132"
+                                        class="avatar"><span class="nickname">💝奈  奈®༗࿆࿐ཻ</span><span>帮助200元</span>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTIj0jTASqr4pu1okW08bL2WEzvFL3GDPvfRxepevPzORDF6hK45oGyE17HibQQIBxLWTXVqq5ZAUpw/132"
+                                        class="avatar"><span class="nickname">11</span><span>帮助50元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTI1MqK71ITCXeHibrToQ5bbETFHwWibnXz8GFLnrkWXH7pYtK5SM3mTgKtIEEwLXLwEm4hbADSLAdFQ/132"
+                                        class="avatar"><span class="nickname">桃發發°</span><span>帮助100元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTKTAKspiaW6t3N7pByzgjO38oUKXL2BZtNbzmtk5rzFKE45AmOcrV9Jxpn5EdjaLHRh8uJHS8deo1w/132"
+                                        class="avatar"><span class="nickname">小燕</span><span>帮助100元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/3H46J0twia5icbDAzCrkibYWm4h6ea7gvaUBD1g1RkYYAyP5Tbb95W5OftibFyOuibPaQVTSSY5ia5OkXSAegRoibc3epY7N7PMWHCp/132"
+                                        class="avatar"><span class="nickname">F e i</span><span>帮助50元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTJO58hUEwHTSia389HyEZVYE46BKUQsatmt86LkCsvLpPcW3XibEZKp2mdACc4MH6a3ic6ibCKIyK2LXQ/132"
+                                        class="avatar"><span class="nickname">啊皓</span><span>帮助200元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/DYWMWPyQT1KNpzVKeBbBPpaTdbiaOIZZHmCjfS8vjPhGReJxXPtx7icyjia7jW52nlEqGrW1D2Pk53zODBKJyUepA/132"
+                                        class="avatar"><span class="nickname">💝奈  奈®༗࿆࿐ཻ</span><span>帮助200元</span>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTIj0jTASqr4pu1okW08bL2WEzvFL3GDPvfRxepevPzORDF6hK45oGyE17HibQQIBxLWTXVqq5ZAUpw/132"
+                                        class="avatar"><span class="nickname">11</span><span>帮助50元</span></div>
+                            </div>
+                            <div class="list-item">
+                                <div><img
+                                        src="https://avatar.shuidihuzhu.com/Q0j4TwGTfTI1MqK71ITCXeHibrToQ5bbETFHwWibnXz8GFLnrkWXH7pYtK5SM3mTgKtIEEwLXLwEm4hbADSLAdFQ/132"
+                                        class="avatar"><span class="nickname">桃發發°</span><span>帮助100元</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-48b97d34=""><!---->
+                <div><!----></div>
+            </div>
+        </div><!----><!----><!---->
+        <div data-v-34fcd6b8="">
+            <div data-v-31ecc363="" data-v-34fcd6b8="">
+                <div data-v-0acad242="" data-v-31ecc363="" id="js-guide-user" class="guide">
+                    <div data-v-2bdc07fb="" data-v-0acad242="" class="guide-heart">
+                        <div data-v-2bdc07fb="" class="guide-heart-text">这是你关注的第1个家庭</div>
+                    </div>
+                    <div data-v-b1d284e6="" data-v-0acad242="" class="guide-footer" pagedata="[object Object]">
+                        这是你关注的第1个家庭，你的好友A y😱急需你的帮助渡过难关
+                        <div data-v-0acad242="" data-v-b1d284e6="">
+                            <div data-v-7ef53428="" data-v-0acad242="" class="guide-footer-close"
+                                 data-v-b1d284e6=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-v-31ecc363="">
+                    <div data-v-31ecc363="">
+                        <div data-v-3437a247=""></div>
+                    </div>
+                </div>
+            </div>
+        </div><!----></div>
+    <div data-v-34fcd6b8="">
+        <div data-v-260c4cc3="" data-v-34fcd6b8="" class="div-dialog-warp">
+            <div data-v-260c4cc3="" class="container" style="display: none;"><!----></div>
+        </div>
+        <div data-v-34fcd6b8=""><!----><!----></div>
+    </div><!---->
+    <div data-v-34fcd6b8="" data-v-3e3e7226="" class="root"></div>
+</div>
+<div data-v-550f9fda="" transition="fade" class="overlay" style="display: none;">
+    <div data-v-550f9fda="" class="dialog" style="display: none;"><p data-v-550f9fda="" class="title"><strong
+            data-v-550f9fda=""></strong></p>
+        <p data-v-550f9fda="" class="content"></p><a data-v-550f9fda="" href="javascript:;">确定</a></div>
+</div>
+<div data-v-986126f4="" class="overlay" style="display: none;">
+    <div data-v-986126f4="" class="dialog" style="display: none;"><p data-v-986126f4="" class="title"><strong
+            data-v-986126f4=""></strong></p>
+        <p data-v-986126f4="" class="info"></p>
+        <div data-v-986126f4="" class="div-bottom"><a data-v-986126f4="" href="javascript:;" class="cancel">取消</a><a
+                data-v-986126f4="" href="javascript:;">确定</a></div>
+    </div>
+</div>
+<div data-v-931d29da="" transition="fade" class="tips-wrap" style="display: none;"><span data-v-931d29da="" class="tips"
+                                                                                         style="display: none;"></span>
+</div>
+<div data-v-8afdae6c="" data-v-2284b1d2="" transition="fade" class="overlay" title="验证手机号" style="display: none;">
+    <div data-v-8afdae6c="" class="dialog hidden" style="display: none;">
+        <div data-v-2284b1d2="" class="login-dialog">
+            <div data-v-2284b1d2="" class="login-header"><h1 data-v-2284b1d2="" class="title">验证手机号</h1><a
+                    data-v-2284b1d2="" href="javascript:;" class="close-button"></a></div>
+            <div data-v-f4246e1e="" data-v-2284b1d2="" class="cf-login-wrap">
+                <div data-v-f4246e1e="" class="login-field">
+                    <div data-v-f4246e1e="" class="phone-wrap"><span data-v-f4246e1e="" class="phone-icon"></span><input
+                            data-v-f4246e1e="" type="number" pattern="[0-9]*" placeholder="请输入手机号" class="field-input">
+                    </div>
+                </div>
+                <div data-v-f4246e1e="" class="login-field">
+                    <div data-v-f4246e1e="" class="verifycode-wrap">
+                        <div data-v-f4246e1e="" class="key-icon"></div>
+                        <div data-v-f4246e1e=""><input data-v-f4246e1e="" type="number" pattern="[0-9]*"
+                                                       placeholder="请输入验证码" class="field-input"></div>
+                        <div data-v-f4246e1e="" class="get-code">点击获取</div>
+                    </div>
+                </div>
+                <div data-v-f4246e1e="" id="captcha"></div>
+                <div data-v-f4246e1e="" class="phone-tip">收不到验证码？拨打<a data-v-f4246e1e="" href="tel:400-686-1179">4006861179</a>
+                    立即为您查询
+                </div>
+                <a data-v-f4246e1e="" href="javascript:;" class="verify-button">验证</a></div>
+        </div>
+    </div>
+</div>
+<div data-v-6eb65ed2="" transition="fade" class="overlay" style="display: none;">
+    <div data-v-6eb65ed2="" class="dialog">
+        <svg data-v-6eb65ed2="" version="1.1" width="40" height="40" viewBox="0 0 64 64" class="icon">
+            <g data-v-6eb65ed2="" stroke-width="4" stroke-linecap="round">
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(180)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values="1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0;1" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(210)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values="0;1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(240)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".1;0;1;.85;.7;.65;.55;.45;.35;.25;.15;.1" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(270)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".15;.1;0;1;.85;.7;.65;.55;.45;.35;.25;.15" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(300)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".25;.15;.1;0;1;.85;.7;.65;.55;.45;.35;.25" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(330)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".35;.25;.15;.1;0;1;.85;.7;.65;.55;.45;.35" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(0)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".45;.35;.25;.15;.1;0;1;.85;.7;.65;.55;.45" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(30)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".55;.45;.35;.25;.15;.1;0;1;.85;.7;.65;.55" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(60)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".65;.55;.45;.35;.25;.15;.1;0;1;.85;.7;.65" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(90)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".7;.65;.55;.45;.35;.25;.15;.1;0;1;.85;.7" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(120)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values=".85;.7;.65;.55;.45;.35;.25;.15;.1;0;1;.85" repeatCount="indefinite"></animate>
+                </line>
+                <line data-v-6eb65ed2="" y1="17" y2="29" transform="translate(32,32) rotate(150)">
+                    <animate data-v-6eb65ed2="" attributeName="stroke-opacity" dur="750ms"
+                             values="1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0;1" repeatCount="indefinite"></animate>
+                </line>
+            </g>
+        </svg>
+        <p data-v-6eb65ed2="" class="title">加载中...</p>
+        <p data-v-6eb65ed2="" class="title"></p></div>
+</div>
+<div data-v-8f420c38="" class="rd-preview-wrapper" style="display: none;">
+    <div data-v-8f420c38="" class="rd-preview-close"><p data-v-8f420c38="" class="rd-preview-close-icon">关闭</p></div>
+    <!---->
+    <div data-v-8f420c38="" class="rd-preview-title"> 1/0</div>
+    <div data-v-8f420c38="" class="rd-preview-nav-left">
+        <div data-v-8f420c38=""></div>
+    </div>
+    <div data-v-8f420c38="" class="rd-preview-nav-right">
+        <div data-v-8f420c38=""></div>
+    </div>
+</div>
+<div data-v-8afdae6c="" data-v-394890cf="" transition="fade" class="overlay" style="display: none;">
+    <div data-v-8afdae6c="" class="dialog hidden" style="display: none;">
+        <div data-v-394890cf="" class="dialog-raise-tip"><p data-v-394890cf="" class="title">筹款须知</p>
+            <div data-v-394890cf="" class="content">
+                <ul data-v-394890cf="">
+                    <li data-v-394890cf="" class="spec">筹款无论是否达到目标金额，都可以提现，瞅瞅不收取任何费用</li>
+                </ul>
+                <p data-v-394890cf="" class="subtitle">收款资格</p>
+                <ul data-v-394890cf="">
+                    <li data-v-394890cf="">收款人必须是患者本人，或患者直系亲属（配偶／父母／子女／亲兄弟姐妹）</li>
+                </ul>
+                <p data-v-394890cf="" class="subtitle">筹款发起</p>
+                <ul data-v-394890cf="">
+                    <li data-v-394890cf="">1. 在线填写筹款信息，填写完毕后即可开始筹款；</li>
+                    <li data-v-394890cf="">2. 在线完善患者身份验证、收款人身份验证、诊断证明后方可提交审核，审核通过后，方可提现；</li>
+                </ul>
+                <p data-v-394890cf="" class="subtitle">筹款结束</p>
+                <ul data-v-394890cf="">
+                    <li data-v-394890cf="">1. 达到目标金额，或筹款开始已满30天，筹款自动结束；</li>
+                    <li data-v-394890cf="">2. 筹款过程中，可随时联系工作人员提前结束，进入提现环节；</li>
+                </ul>
+                <p data-v-394890cf="" class="subtitle">提现流程</p>
+                <ul data-v-394890cf="">
+                    <li data-v-394890cf="">1. 筹款结束后，赠与款项将在2-4个工作日内汇入收款人银行账户；</li>
+                    <li data-v-394890cf="" class="spec">2. 平台承诺：绝不收取任何费用，每一分钱都用于患者救治。</li>
+                </ul>
+            </div>
+            <a data-v-394890cf="" href="javascript:;">好的</a></div>
+    </div>
+</div>
+<div data-v-8afdae6c="" data-v-437de931="" data-v-39e75e37="" transition="fade" class="overlay v-transfer-dom"
+     style="display: none;">
+    <div data-v-8afdae6c="" class="dialog hidden" style="display: none;">
+        <div data-v-437de931="" class="agreements"><p data-v-437de931="" class="agreements-title"></p><!----><!---->
+            <!----><!----><!----><!----><a data-v-437de931="" href="javascript:;"
+                                           class="agreements-button agreements-button-active"> 好的 </a></div>
+    </div>
+</div>
+<div data-v-8afdae6c="" data-v-5119a289="" data-v-e2dd4bda="" transition="fade" class="overlay v-transfer-dom"
+     style="display: none;">
+    <div data-v-8afdae6c="" class="dialog hidden" style="display: none;"></div>
+</div>
+<div data-v-8afdae6c="" data-v-5119a289="" data-v-3a7fe6c0="" transition="fade" class="overlay v-transfer-dom"
+     style="display: none;">
+    <div data-v-8afdae6c="" class="dialog hidden" style="display: none;"></div>
+</div>
+</body>
+</html>

@@ -9,12 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.epeins.factory.FactoryApplication;
-import com.epeins.factory.dao.TaskInfoMapper;
-import com.epeins.factory.pojo.TaskInfo;
+import org.shizhijian.raisefunds.RaiseFundsApplication;
+import org.shizhijian.raisefunds.dao.TaskInfoMapper;
+import org.shizhijian.raisefunds.pojo.TaskInfo;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {FactoryApplication.class})
+@SpringBootTest(classes = {RaiseFundsApplication.class})
 public class TestTaskInfo {
 
 	@Autowired

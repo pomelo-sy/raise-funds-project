@@ -1,26 +1,23 @@
-#server.servlet-path=/epeins-factory
-#server.port=80
-#spring.profiles.active=local
-
 server:
   port: 80
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    schema: classpath:db/schema-h2.sql
-#    data: classpath:db/data-h2.sql
-    url: jdbc:mysql://127.0.0.1:33306/epeins_factory?useUnicode=true&characterEncoding=UTF-8&serverTimeZone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/raise_funds_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: root
   mvc:
     servlet:
-      path: /epeins-factory
-      
-logging:
-  level:
-    root: info
-    com.epeins.factory.dao: trace
-#  pattern:
-#    console: '%p%m%n'
-          
+      path: /raiseFunds
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+
+
+

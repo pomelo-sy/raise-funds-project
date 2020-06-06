@@ -12,16 +12,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.epeins.factory.FactoryApplication;
-import com.epeins.factory.controller.ProductInfoController;
-import com.epeins.factory.dao.ProductInfoMapper;
-import com.epeins.factory.dto.ProductDTO;
-import com.epeins.factory.pojo.ProductInfo;
-import com.epeins.factory.service.ProductInfoService;
-import com.epeins.factory.util.ResultData;
+import org.shizhijian.raisefunds.RaiseFundsApplication;
+import org.shizhijian.raisefunds.controller.ProductInfoController;
+import org.shizhijian.raisefunds.dao.ProductInfoMapper;
+import org.shizhijian.raisefunds.dto.ProductDTO;
+import org.shizhijian.raisefunds.pojo.ProductInfo;
+import org.shizhijian.raisefunds.service.ProductInfoService;
+import org.shizhijian.raisefunds.util.ResultData;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {FactoryApplication.class})
+@SpringBootTest(classes = {RaiseFundsApplication.class})
 public class TestProductInfo {
 
 	
