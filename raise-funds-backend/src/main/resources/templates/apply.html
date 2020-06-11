@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh" style="font-size: 37.5px;">
+<head>
+    <meta charset="UTF-8">
+    <title>申请</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <link rel="icon" href="https://store.shuidichou.com/imgs/common/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script th:src="@{../static/js/zepto.min.js}"></script>
+    <script type="text/javascript" th:src="@{../static/js/jweixin-1.0.0.js}"></script>
+    <script th:src="@{../static/js/weui.min.js}"></script>
+    <link rel="stylesheet" th:href="@{../static/css/weui.css}">
+
+
+
+</head>
+<body>
+
+<div class="weui-form__control-area">
+    <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">筹款申请</div>
+        <div class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
+                <img th:src="${user.getHeadImgUrl()}" style="width: 50px; display: block;">
+                <span class="weui-badge" style="position: absolute; top: -0.4em; right: -0.4em;">8</span>
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 17px; color: #888;" th:text="${user.getNickName()}"></p>
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd"><label class="weui-label">您的性名</label></div>
+                <div class="weui-cell__bd">
+                    <input id="name" name="name" class="weui-input" placeholder="请输入您的性名">
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd"><label class="weui-label">您的手机号</label></div>
+                <div class="weui-cell__bd">
+                    <input id="telephone" name="telephone" class="weui-input" placeholder="请输入您的手机号">
+                </div>
+            </div>
+
+            <div class="weui-cells__group weui-cells__group_form">
+                <div class="weui-cells__title">问题描述</div>
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell ">
+                        <div class="weui-cell__bd">
+                            <textarea id="issue_desc" name="issue_desc" class="weui-textarea" placeholder="请描述你所发生的问题" rows="3"></textarea>
+                            <div class="weui-textarea-counter"><span>0</span>/200</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-form__opr-area">
+                <a class="weui-btn weui-btn_primary" href="javascript:void(0)" onclick="apply_submit();" id="showTooltips">申请</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script  th:inline="javascript">
+    var appid = [[${APPID}]];
+    var timestamp = [[${timestamp}]];
+    var nonceStr = [[${nonceStr}]];
+    var signature = [[${signature}]];
+
+    wx.config({
+        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: appid, // 必填，公众号的唯一标识
+        timestamp: timestamp, // 必填，生成签名的时间戳
+        nonceStr: nonceStr, // 必填，生成签名的随机串
+        signature: signature,// 必填，签名
+        jsApiList: [] // 必填，需要使用的JS接口列表
+    });
+
+
+</script>
+<script>
+    function apply_submit(){
+        var name = "#name";
+        var telephone = "#new_selected";
+        var json_data = {name:$("#name").val(),telephone:$("#telephone").val()};
+        $.ajax({
+            type: "POST",
+            url: "[[@{../raise/submitApply}]]",
+            data: JSON.stringify(json_data),
+            dataType: "json",
+            contentType:"application/json",
+            success: function(data){
+                if(data.data){
+                    alert("申请成功");
+                }else{
+                    alert("fail");
+                }
+            }
+        })
+
+    }
+</script>
+</body>
+</html>

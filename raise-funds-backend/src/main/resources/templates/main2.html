@@ -26,29 +26,29 @@
         </td>
         <script>
             function submit_click(index){
-                var sure = confirm("确认修改")
-                if(sure){
-                    var tableName = "#table_name"+index;
-                    var newSelected = "#new_selected"+index;
-                    var json_data = {tableName:$(tableName).text(),selectedTable:$(newSelected).val()};
-                    $.ajax({
-                        type: "POST",
-                        url: "[[@{/updateConfigs}]]",
-                        data: JSON.stringify(json_data),
-                        dataType: "json",
-                        contentType:"application/json",
-                        success: function(data){
-                            if(data.data){
-                                location.reload();
-                            }else{
-                                alert("fail");
-                            },
-                            fail: function(data){
-                                alert("update fail");
-                            }
+            var sure = confirm("确认修改")
+            if(sure){
+                var tableName = "#table_name"+index;
+                var newSelected = "#new_selected"+index;
+                var json_data = {tableName:$(tableName).text(),selectedTable:$(newSelected).val()};
+                $.ajax({
+                    type: "POST",
+                    url: "[[@{/updateConfigs}]]",
+                    data: JSON.stringify(json_data),
+                    dataType: "json",
+                    contentType:"application/json",
+                    success: function(data){
+                        if(data.data){
+                            location.reload();
+                        }else{
+                            alert("fail");
+                        },
+                        fail: function(data){
+                            alert("update fail");
                         }
-                    })
-                }
+                    }
+                })
+            }
             }
         </script>
 </body>

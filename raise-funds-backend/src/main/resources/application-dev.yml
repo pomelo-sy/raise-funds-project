@@ -10,6 +10,7 @@ spring:
   mvc:
     servlet:
       path: /raiseFunds
+    static-path-pattern: /static/**
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
@@ -19,5 +20,13 @@ spring:
     servlet:
       content-type: text/html
 
+
+weixin:
+  APPID: wx7957f4c06293d4de
+  appSecret: e26d1cce11f2a6eb4d8988ae934701cc
+  URL:
+    getToken: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={appSecret}
+    getUserInfo: https://api.weixin.qq.com/cgi-bin/user/info?access_token={access_token}&openid={openId}&lang=zh_CN
+    getWebAccessToken: https://api.weixin.qq.com/sns/oauth2/access_token?appid={APPID}&secret={appSecret}&code={code}&grant_type=authorization_code
 
 

@@ -16,7 +16,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value="f_raise_funds_desc")
+@TableName(value="t_raise_funds_desc")
 public class RaiseFundsDesc implements Serializable {
 
     @TableId(type= IdType.AUTO)

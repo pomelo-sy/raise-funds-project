@@ -1,4 +1,7 @@
 package org.shizhijian.raisefunds.dao;
 
-public interface UserMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.shizhijian.raisefunds.pojo.User;
+
+public interface UserMapper extends BaseMapper<User> {
 }

@@ -15,31 +15,17 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("t_user")
-public class User implements Serializable {
+@TableName("t_token")
+public class AccessToken implements Serializable {
+
     @TableId(type= IdType.AUTO)
     private Integer id;
 
-    private String name;
+    private String appId;
 
-    private Integer sex;
+    private String accessToken;
 
-    private Date lastLogin;
+    private Date createTime;
 
-    private String openId;
-
-    private String nickName;
-
-    private String province;
-
-    private String city;
-
-    private String country;
-
-    private String headImgUrl;
-
-    private String unionId;
-
-    private static final long serialVersionUID = 1L;
-
+    private Date updateTime;
 }
