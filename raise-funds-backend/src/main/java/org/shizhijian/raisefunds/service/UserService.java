@@ -5,4 +5,5 @@ import org.shizhijian.raisefunds.pojo.User;
 
 public interface UserService extends IService<User> {
 
+    User getUserByOpenId(String openId);
 }

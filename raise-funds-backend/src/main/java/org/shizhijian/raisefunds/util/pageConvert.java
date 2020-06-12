@@ -22,5 +22,8 @@ public class pageConvert {
         String str3 = "http://39.98.152.84/raiseFunds/raise/apply";
         System.out.println(URLEncoder.encode(str3));
 
+
+        System.out.println(URLEncoder.encode("http://39.98.152.84/raiseFunds/raise/myRaiseFunds"));
+
     }
 }

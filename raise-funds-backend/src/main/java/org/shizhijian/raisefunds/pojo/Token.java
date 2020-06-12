@@ -16,14 +16,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_token")
-public class AccessToken implements Serializable {
+public class Token implements Serializable {
 
     @TableId(type= IdType.AUTO)
     private Integer id;
 
     private String appId;
 
-    private String accessToken;
+    private String token;
+
+    private String tokenType;
 
     private Date createTime;
 

@@ -22,13 +22,13 @@ public class TestComponents {
 
     @Test
     public void TestGetToken(){
-        weixinUtil.getToken();
+        weixinUtil.getToken("1");
     }
 
 
     @Test
     public void TestRasie(){
-        raiseFundsController.apply("011AQP5q0LhmRj1PCM5q0kkL5q0AQP5k", null);
+        raiseFundsController.apply("011AQP5q0LhmRj1PCM5q0kkL5q0AQP5k", null,null);
     }
 
 

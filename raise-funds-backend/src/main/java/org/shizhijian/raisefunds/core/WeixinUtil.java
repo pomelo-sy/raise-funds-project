@@ -1,10 +1,10 @@
 package org.shizhijian.raisefunds.core;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import org.shizhijian.raisefunds.dao.TokenMapper;
-import org.shizhijian.raisefunds.pojo.AccessToken;
+import org.shizhijian.raisefunds.pojo.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -13,10 +13,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Component("weixinUtil")
 public class WeixinUtil {
@@ -36,16 +37,44 @@ public class WeixinUtil {
     @Value("${weixin.URL.getWebAccessToken}")
     private String getWebAccessToken;
 
+    @Value("${weixin.URL.getJsApiTicket}")
+    private String getJsApiTicket;
+
     @Autowired
     private RestTemplate restTemplate;
 
     @Autowired
     private TokenMapper tokenMapper;
 
+    public enum TokenTypeEnum {
+        accessToken("1"), jsApiToken("2");
+        private String value;
+        TokenTypeEnum(String value){
+            this.value = value;
+        }
+        String getValue(){
+            return this.value;
+        }
+    }
 
-    public String getToken(){
-        AccessToken accessToken = tokenMapper.selectById(1);
-        return accessToken.getAccessToken();
+    public String getToken(String tokenType){
+
+        Token accessToken= tokenMapper.selectById(Integer.valueOf(tokenType));
+        return accessToken.getToken();
+    }
+
+    public String getSignature(String noncestr, String ticket, String timestamp, String url) throws NoSuchAlgorithmException {
+        String str = "jsapi_ticket={jsapi_ticket}&noncestr={noncestr}&timestamp={timestamp}&url={url}"
+                .replace("{jsapi_ticket}", ticket).replace("{noncestr}", noncestr)
+                .replace("{timestamp}", timestamp).replace("{url}", url);
+        return sha1(str);
+    }
+
+    public String sha1(String str) throws NoSuchAlgorithmException {
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA"); // 此处的sha代表sha1
+        byte[] cipherBytes = messageDigest.digest(str.getBytes());
+        String cipherStr = Hex.encodeHexString(cipherBytes);
+        return cipherStr;
     }
 
     public JSONObject getWebAccessTokenAndOpenId(String code){
@@ -60,7 +89,7 @@ public class WeixinUtil {
 
     public JSONObject getWeixinUserDto(String openId){
 
-        URI url = URI.create(getUserInfoUrl.replace("{access_token}", getToken()).replace("{openId}", openId));
+        URI url = URI.create(getUserInfoUrl.replace("{access_token}", getToken(TokenTypeEnum.accessToken.getValue())).replace("{openId}", openId));
         ResponseEntity<JSONObject> response = getWithJson(url);
         if(response.getStatusCode() == HttpStatus.OK){
             return response.getBody();
@@ -73,8 +102,21 @@ public class WeixinUtil {
 
         String accessToken = getTokenScheduled();
         if(StringUtils.isNotBlank(accessToken)){
-            tokenMapper.updateById(AccessToken.builder().accessToken(accessToken).id(1).appId("wx_raiseFunds").updateTime(new Date()).build());
+            tokenMapper.updateById(Token.builder().token(accessToken).tokenType("1").id(1).appId("wx_raiseFunds").updateTime(new Date()).build());
         }
+        String jpApiTicket = getJsApiTicketScheduled(accessToken);
+        if(StringUtils.isNotBlank(jpApiTicket)){
+            tokenMapper.updateById(Token.builder().token(jpApiTicket).tokenType("2").id(2).appId("wx_raiseFunds").updateTime(new Date()).build());
+        }
+    }
+
+    private String getJsApiTicketScheduled(String token){
+        URI url = URI.create(getJsApiTicket.replace("{access_token}", token));
+        ResponseEntity<JSONObject> response = getWithJson(url);
+        if(response.getStatusCode() == HttpStatus.OK){
+            return response.getBody().get("ticket").toString();
+        }
+        return "";
     }
 
     private String getTokenScheduled(){
