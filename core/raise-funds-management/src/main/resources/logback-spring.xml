@@ -1,136 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xml>
-
 <configuration>
-	<!-- Properties for this project -->
-	<property name="APP_ID"
-		value="com.hy.micro.service.dingding.DingdingService" />
-	<property name="LOG_PATH" value="\logs"></property>
+    <!-- 这里面定义了 CONSOLE_LOG_PATTERN, FILE_LOG_PATTERN 等日志格式, 还定义了一些日志级别 -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
-	<!-- output to console -->
-	<appender name="STDOUT"
-		class="ch.qos.logback.core.ConsoleAppender">
-		<encoder charset="UTF-8">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level
-				%logger{35} - %msg %n</pattern>
-		</encoder>
-	</appender>
+    <property name="LOG_LEVEL" value="INFO"/>
+    <property name="LOG_PATH" value="log"/>
+    <property name="LOG_FILE" value="project_manager.log"/>
+    <property name="LOG_HISTORY" value="project_manager.%d{yyyy-MM-dd}.log"/>
 
-	<!-- output to file -->
-	<appender name="FILE_LOGS"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>DEBUG</level>
-		</filter>
-		<file>${LOG_PATH}/${APP_ID}/access.log</file>
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_PATH}/${APP_ID}/access.log.%d{yyyy-MM-dd}.zip
-			</fileNamePattern>
-			<maxHistory>10</maxHistory>
-		</rollingPolicy>
-		<encoder charset="UTF-8">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level
-				%logger{35} - %msg%n</pattern>
-		</encoder>
-	</appender>
+    <!--日志输出到控制台-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
 
-	<!-- output debug to file -->
-	<appender name="FILE_DEBUG"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>DEBUG</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-		<file>${LOG_PATH}/${APP_ID}/access_debug.log</file>
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_PATH}/${APP_ID}/access_debug.log.%d{yyyy-MM-dd}.zip
-			</fileNamePattern>
-			<maxHistory>10</maxHistory>
-		</rollingPolicy>
-		<encoder charset="UTF-8">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level
-				%logger{35} - %msg%n</pattern>
-		</encoder>
-	</appender>
+    <!--日志输出到文件-->
+    <springProfile name="!dev">
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_PATH}/${LOG_FILE}</file>  <!-- 可自己定义 -->
+            <encoder>
+                <pattern>${FILE_LOG_PATTERN}</pattern> <!-- 输出格式也可自己定义 -->
+            </encoder>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/${LOG_HISTORY}</fileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+        </appender>
+    </springProfile>
 
-	<!-- output info to file -->
-	<appender name="FILE_INFO"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>INFO</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-		<file>${LOG_PATH}/${APP_ID}/access_info.log</file>
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_PATH}/${APP_ID}/access_info.log.%d{yyyy-MM-dd}.zip
-			</fileNamePattern>
-			<maxHistory>10</maxHistory>
-		</rollingPolicy>
-		<encoder charset="UTF-8">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level
-				%logger{35} - %msg%n</pattern>
-		</encoder>
-	</appender>
+    <!--异步到文件-->
+    <springProfile name="!dev">
+        <appender name="asyncFileAppender" class="ch.qos.logback.classic.AsyncAppender">
+            <discardingThreshold>0</discardingThreshold>
+            <queueSize>500</queueSize>
+            <appender-ref ref="FILE"/>
+        </appender>
+    </springProfile>
 
-	<!-- output warn to file -->
-	<appender name="FILE_WARN"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>WARN</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-		<file>${LOG_PATH}/${APP_ID}/access_warn.log</file>
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_PATH}/${APP_ID}/access_warn.log.%d{yyyy-MM-dd}.zip
-			</fileNamePattern>
-			<maxHistory>10</maxHistory>
-		</rollingPolicy>
-		<encoder charset="UTF-8">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level
-				%logger{35} - %msg%n</pattern>
-		</encoder>
-	</appender>
 
-	<!-- output error to file -->
-	<appender name="FILE_ERROR"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>ERROR</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-		<file>${LOG_PATH}/${APP_ID}/access_error.log</file>
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_PATH}/${APP_ID}/access_error.log.%d{yyyy-MM-dd}.zip
-			</fileNamePattern>
-			<maxHistory>10</maxHistory>
-		</rollingPolicy>
-		<encoder charset="UTF-8">
-			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level
-				%logger{35} - %msg%n</pattern>
-		</encoder>
-	</appender>
+    <!--开发环境:打印控制台-->
+    <springProfile name="dev">
+        <!-- 打印sql -->
+        <logger name="com.company.project" level="DEBUG"/>
+        <root level="${LOG_LEVEL}">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
 
-	<!-- TRACE, DEBUG, INFO, WARN, ERROR, ALL and OFF -->
-	<root level="DEBUG">
-		<appender-ref ref="STDOUT" />
-		<appender-ref ref="FILE_LOGS" />
-		<appender-ref ref="FILE_DEBUG" />
-		<appender-ref ref="FILE_INFO" />
-		<appender-ref ref="FILE_WARN" />
-		<appender-ref ref="FILE_ERROR" />
-	</root>
+    <!-- 输出格式 appender -->
+    <springProfile name="!dev">
+        <root level="${LOG_LEVEL}">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="asyncFileAppender"/>
+        </root>
+    </springProfile>
 
-	<logger name="org.springframework" level="INFO" />
 
-	<logger name="com.hy.micro.service.luckydraw.repository"
-		level="DEBUG" />
 </configuration>
