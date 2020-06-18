@@ -1,56 +1,35 @@
-server:
-    port: 9600
+# 开发环境配置
 spring:
-    application:
-        name: dingding-service
-    cloud:
-        bus:
-            enabled: true
-            trace:
-                enabled: true
-    datasource:
-        driver-class-name: com.mysql.jdbc.Driver
-        password: P@swrd1
-        url: jdbc:mysql://localhost:3306/blooming?characterEncoding=utf-8&userSSL=false
-        username: weixuan
-    rabbitmq:
-        host: localhost
-        password: guest
-        port: 5672
-        username: guest
-    redis:
-        host: 127.0.0.1
-        port: 6379
-    server:
-        context-path: /dingding
-        
-management:
-    endpoints:
-        web:
-            exposure:
-                include: bus-refresh
-order:
-    id:
-        generator:
-            datacenterId: 5
-            workerId: 10
-project:
-    url:
-        config:
-            mpAuthorizeUrl: http://fmx.weixin.gzcstec.com
-            openAuthorizeUrl: http://fmx.weixin.gzcstec.com
-            sell: http://fmx.weixin.gzcstec.com
-            
-wechat:
-    account:
-        config:
-            keyPath: D:/weixin_cert/apiclient_cert.p12
-            mchId: 137945590x
-            mchKey: 0561d7c09b9cc71b00xxxxxxxxxxxx
-            mpAppId: wxa6344813f106bc7a
-            mpAppSecret: 0561d7c09b9cc71b0083e9133e9a903d
-            notify_url: http://gzcstec.com/sell/pay/notify
-            openAppId: wxaf53a107603fccae
-            openAppSecret: 4ca3a5a3fb96f41ff47ec0e65c88e4ce
-            templateIds:
-                orderStatus: uyjvfWUNNxavK_hW_dfNM1noVp-jHXcjadjBcM8BVYY
+  thymeleaf:
+    cache: false
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      datasource:
+        master:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/company_project?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2b8
+  redis:
+    key:
+      prefix:
+        userToken: "user:token:"
+        passwordError: "user:password:error:"
+        permissionRefresh: "user:token:permissionRefresh:"
+      expire:
+        userToken: 604800 # 7天 7*24*3600
+        passwordError: 3600 # 一个小时
+        permissionRefresh: 604800 # 7天 7*24*3600
+    allowMultipleLogin: true # 允许多处登陆
+    host: localhost # Redis服务器地址
+    database: 0 # Redis数据库索引（默认为0）
+    port: 6379 # Redis服务器连接端口
+    password: # Redis服务器连接密码（默认为空）
+    jedis:
+      pool:
+        max-active: 8 # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1ms # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 8 # 连接池中的最大空闲连接
+        min-idle: 0 # 连接池中的最小空闲连接
+    timeout: 3000ms # 连接超时时间（毫秒
