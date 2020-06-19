@@ -157,10 +157,6 @@
 				</dependencies>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<skipTests>true</skipTests>
@@ -172,6 +168,9 @@
 <profiles>
 	<profile>
 		<id>dev</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
 		<properties>
 			<profiles.active>dev</profiles.active>
 		</properties>

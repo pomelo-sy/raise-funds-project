@@ -120,6 +120,17 @@ public class IndexController {
         return "sysdict/list" ;
     }
 
+    @GetMapping("/raiseFunds")
+    public String raiseFunds() {
+        return "raiseFunds/list" ;
+    }
+
+
+    @GetMapping("/raiseFundsApproval")
+    public String raiseFundsApproval() {
+        return "raiseFunds/list-approval" ;
+    }
+
     @GetMapping("/sysGenerator")
     public String sysGenerator() {
         return "generator/list" ;
