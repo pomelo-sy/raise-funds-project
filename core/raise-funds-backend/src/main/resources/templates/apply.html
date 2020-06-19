@@ -31,7 +31,7 @@
                 <img th:src="${user.getHeadImgUrl()}" style="width: 50px; display: block;">
             </div>
             <div class="weui-cell__bd">
-                <p style="font-size: 17px; color: #888;" th:text="${user.getNickName()}"></p>
+                <p style="font-size: 17px; color: #888;" th:text="'您好: '+${user.getNickName()}"></p>
             </div>
         </div>
         <div class="weui-cells weui-cells_form">
@@ -79,13 +79,13 @@
     </div>
     </form>
 </div>
-<div class="js_dialog" id="warnDialog" style="opacity: 1;">
+<div class="js_dialog" id="warnDialog" style="opacity: 1;display: none">
     <div class="weui-mask"></div>
-    <div class="weui-dialog">
-        <div class="weui-dialog__bd"></div>
-        <div class="weui-dialog__ft">
-            <a href="javascript:" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
-        </div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:$('#warnDialog').css('display', 'none')" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+            </div>
     </div>
 </div>
 <!--<script  th:inline="javascript">
@@ -108,8 +108,42 @@
 <script>
     function apply_submit(){
 
+        var title = $('#title').val();
+        var content = $('#content').val();
+        var name = $('#name').val();
+        var telephone = $('#telephone').val();
+        var targetFunds = $('#targetFunds').val();
 
-
+        if(title == ''){
+            $('#warnDialog').css('display','')
+            $('.weui-dialog__bd').html('请填写标题');
+            return;
+        }
+        if(content == ''){
+            $('#warnDialog').css('display','')
+            $('.weui-dialog__bd').html('请填写问题描述');
+            return;
+        }
+        if(name == ''){
+            $('#warnDialog').css('display','')
+            $('.weui-dialog__bd').html('请填写您的姓名');
+            return;
+        }
+        if(telephone == ''){
+            $('#warnDialog').css('display','')
+            $('.weui-dialog__bd').html('请填写您的手机号');
+            return;
+        }
+        if(targetFunds == ''){
+            $('#warnDialog').css('display','')
+            $('.weui-dialog__bd').html('请填写您申请的金额');
+            return;
+        }
+        if(targetFunds == ''){
+            $('#warnDialog').css('display','')
+            $('.weui-dialog__bd').html('请填写您申请的金额');
+            return;
+        }
         var json_data = $("#applyForm").serializeJSON();
         $.ajax({
             type: "POST",
