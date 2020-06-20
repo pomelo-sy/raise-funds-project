@@ -1,10 +1,15 @@
 package org.shizhijian.raisefunds.core;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.Data;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import org.shizhijian.raisefunds.dao.TokenMapper;
 import org.shizhijian.raisefunds.pojo.Token;
+import org.shizhijian.raisefunds.pojo.User;
+import org.shizhijian.raisefunds.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -20,6 +25,8 @@ import java.util.Date;
 import java.util.List;
 
 @Component("weixinUtil")
+@Slf4j
+@Getter
 public class WeixinUtil {
 
     @Value("${weixin.APPID}")
@@ -39,6 +46,9 @@ public class WeixinUtil {
 
     @Value("${weixin.URL.getJsApiTicket}")
     private String getJsApiTicket;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -77,11 +87,40 @@ public class WeixinUtil {
         return cipherStr;
     }
 
+
+    public User getUserByCode(String code){
+        JSONObject tokenAndOpenId = getWebAccessTokenAndOpenId(code);
+        User user = null;
+        if(tokenAndOpenId != null) {
+            log.info("token: {}, openId: {}", tokenAndOpenId.getString("access_token"), tokenAndOpenId.getString("openid"));
+            //如果已经有用户了 则更新登录时间就可以了
+            user = userService.getUserByOpenId(tokenAndOpenId.getString("openid"));
+            if (user != null) {
+                user.setLastLogin(new Date());
+            } else {
+                JSONObject obj = getWeixinUserDto(tokenAndOpenId.getString("openid"));
+                if (obj != null) {
+                    log.info(obj.getString("nickname"));
+                    user = User.builder().openId(obj.getString("openid"))
+                            .nickName(obj.getString("nickname")).sex(obj.getInteger("sex"))
+                            .city(obj.getString("city")).province(obj.getString("province"))
+                            .country(obj.getString("country")).headImgUrl(obj.getString("headimgurl"))
+                            .lastLogin(new Date()).build();
+                    userService.saveOrUpdate(user);
+                }
+            }
+        }
+        return user;
+    }
+
     public JSONObject getWebAccessTokenAndOpenId(String code){
 
+        log.info("getWebAccessTokenAndOpenId: code: {}, appId: {}, secretkey: {}", code, appId, appSecret);
         URI url = URI.create(getWebAccessToken.replace("{APPID}", appId).replace("{appSecret}", appSecret).replace("{code}", code));
+        log.info("getWebAccessTokenAndOpenId: url: {}", url.toString());
         ResponseEntity<JSONObject> response = getWithJson(url);
         if(response.getStatusCode() == HttpStatus.OK){
+            log.debug("response Body: {}", response.getBody().toJSONString());
             return response.getBody();
         }
         return null;
@@ -129,7 +168,7 @@ public class WeixinUtil {
         return "";
     }
 
-    private ResponseEntity<JSONObject> getWithJson(URI url){
+    public ResponseEntity<JSONObject> getWithJson(URI url){
         HttpHeaders header = new HttpHeaders();
         List<MediaType> mediaTypes = new ArrayList<MediaType>();
         mediaTypes.add(MediaType.APPLICATION_JSON);

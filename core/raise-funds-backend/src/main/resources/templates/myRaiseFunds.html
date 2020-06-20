@@ -47,12 +47,11 @@
                 </div>
                 <div class="weui-form-preview__item">
                     <label class="weui-form-preview__label">审批状态</label>
-                    <span class="weui-form-preview__value" th:text="待审批"></span>
+                    <span class="weui-form-preview__value" th:if="${raise.getStatus()} eq 0" th:text="待审批"></span>
+                    <span class="weui-form-preview__value" th:if="${raise.getStatus()} eq 1" th:text="审批通过"></span>
                 </div>
-            </div>
-            <div class="weui-form-preview__ft">
-                <!--<a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">辅助操作</a>-->
-                <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">详情页</a>
+                <a th:if="${raise.getStatus()} eq 0" th:id="href_+${raise.getId()}" class="weui-btn weui-btn_disabled weui-btn_default" th:href="@{'javascript:jumnDescDetail('+${raise.getId()}+')'}">详情页</a>
+                <a th:if="${raise.getStatus()} eq 1" th:id="href_+${raise.getId()}" class="weui-btn weui-btn_default" th:href="@{'javascript:jumnDescDetail('+${raise.getId()}+')'}">详情页</a>
             </div>
         </div>
     </div>
@@ -79,26 +78,18 @@
 
 </script>-->
 <script>
-    function apply_submit(){
-        var name = "#name";
-        var telephone = "#new_selected";
-        var json_data = {name:$("#name").val(),telephone:$("#telephone").val()};
-        $.ajax({
-            type: "POST",
-            url: "[[@{../raise/submitApply}]]",
-            data: JSON.stringify(json_data),
-            dataType: "json",
-            contentType:"application/json",
-            success: function(data){
-                if(data.data){
-                    alert("申请成功");
-                    window.location.href=""
-                }else{
-                    alert("fail");
-                }
-            }
-        })
 
+    function jumnDescDetail(raiseId){
+        var tmp = '#href_'+raiseId;
+        if($(tmp)[0].getAttribute('class').indexOf('weui-btn_disabled') != -1){
+            return ;
+        }
+
+        var jumpUrl = "[[${redirectServer}]]";
+        jumpUrl+="/raiseFundsDesc/inventory?raiseId="+raiseId;
+        // jumpUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+"[[${appid}]]"+
+        //     "&redirect_uri=" + encodeURIComponent(jumpUrl) + "&response_type=code&scope=snsapi_userinfo&#wechat_redirect";
+        window.location.href=jumpUrl;
     }
 </script>
 </body>

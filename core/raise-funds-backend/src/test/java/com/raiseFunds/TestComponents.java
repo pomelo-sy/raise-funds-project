@@ -1,17 +1,26 @@
 package com.raiseFunds;
 
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.shizhijian.raisefunds.RaiseFundsApplication;
 import org.shizhijian.raisefunds.controller.RaiseFundsController;
 import org.shizhijian.raisefunds.core.WeixinUtil;
+import org.shizhijian.raisefunds.pojo.User;
+import org.shizhijian.raisefunds.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.ui.Model;
 
+import java.net.URI;
+import java.util.Date;
+
 @RunWith(value= SpringRunner.class)
 @SpringBootTest(classes = {RaiseFundsApplication.class})
+@Slf4j
 public class TestComponents {
 
     @Autowired
@@ -19,6 +28,9 @@ public class TestComponents {
 
     @Autowired
     private RaiseFundsController raiseFundsController;
+
+    @Autowired
+    private UserService userService;
 
     @Test
     public void TestGetToken(){
@@ -37,4 +49,34 @@ public class TestComponents {
         weixinUtil.refreshToken();
     }
 
+    @Test
+    public void getAppid(){
+        System.out.println(weixinUtil.getAppId());
+    }
+
+    @Test
+    public void getopenIdByCode(){
+        weixinUtil.getWebAccessTokenAndOpenId("071mNh6i2odCDE0ENz8i2AYh6i2mNh6R");
+    }
+
+    @Test
+    public void testInserUser(){
+
+        ResponseEntity<JSONObject> withJson = weixinUtil.getWithJson(URI.create("https://api.weixin.qq.com/cgi-bin/user/info?access_token=34_ij7fIssE-LZSqg0AlllDX71p_aRrb3_Mrg9pavwdOqwi-Y9RN1if_v3vmGpx4zLvvU5fqrI2rj1OCDPqS5vHoEzzuR5UL5xybbATuNr6Ldbw67keOVupL8URzedvRasXCscyMeDw9SvRNyeTCJLjAEAQXZ&openid=oCLaowcmAeHb3-wOJ9ZkoJwZdn6Y&lang=zh_CN"));
+        JSONObject body = withJson.getBody();
+        log.info(body.toJSONString());
+        String nickName = body.getString("nickname");
+        log.info("nickName: {}", nickName);
+
+        boolean flag = userService.save(User.builder().nickName(nickName).lastLogin(new Date()).build());
+        log.info(String.valueOf(flag));
+
+
+    }
+
+
+    @Test
+    public void testUserName(){
+        log.info(userService.getById(18).getNickName());
+    }
 }
