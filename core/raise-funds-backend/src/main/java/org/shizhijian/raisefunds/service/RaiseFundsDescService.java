@@ -9,4 +9,6 @@ public interface RaiseFundsDescService  extends IService<RaiseFundsDesc> {
 
 
     List<RaiseFundsDesc> findByOpenId(String openId);
+
+    List<RaiseFundsDesc> findByOpenIdAndStatus(String openId, Integer status);
 }

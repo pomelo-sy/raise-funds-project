@@ -47,5 +47,19 @@ public class RaiseFundsDesc implements Serializable {
 
     private Integer status;
 
+    private Boolean hasHouse;
+
+    private Boolean otherPlatform;
+
+    private Boolean hasLifeAccident;
+
+    private Boolean hasProperty;
+
+    private Boolean hasInsurance;
+
+    private String salary;
+
+    private String debts;
+
     private static final long serialVersionUID = 1L;
 }

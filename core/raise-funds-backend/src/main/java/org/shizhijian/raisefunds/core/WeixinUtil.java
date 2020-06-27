@@ -7,8 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import org.shizhijian.raisefunds.dao.TokenMapper;
+import org.shizhijian.raisefunds.dto.JsApiDto;
 import org.shizhijian.raisefunds.pojo.Token;
 import org.shizhijian.raisefunds.pojo.User;
+import org.shizhijian.raisefunds.service.TokenService;
 import org.shizhijian.raisefunds.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,12 +19,15 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Component("weixinUtil")
 @Slf4j
@@ -54,7 +59,49 @@ public class WeixinUtil {
     private RestTemplate restTemplate;
 
     @Autowired
-    private TokenMapper tokenMapper;
+    private TokenService tokenService;
+
+    public String getUrlWithPara(ServletRequest request) {
+        HttpServletRequest r = (HttpServletRequest) request;
+        String url = r.getRequestURL().toString();
+//        Map<String, String[]> parameterMap = request.getParameterMap();
+//        if(parameterMap != null&& parameterMap.entrySet().size() > 0){
+//            url+="?";
+//        }
+//        StringBuffer paras = new StringBuffer("");
+//        parameterMap.entrySet().forEach(t->{
+//            paras.append(t.getKey()).append("=").append(t.getValue()[0]).append("&");
+//        });
+//        url+=paras.substring(0, paras.length()-1);;
+        String path = r.getQueryString();
+        if(StringUtils.isNotBlank(path)){
+            url = url + "?" + path;
+        }
+        log.info("urlWithPara: {}", url);
+        return url;
+    }
+
+    public JsApiDto getJsApiDto(ServletRequest request) {
+
+        String url = getUrlWithPara(request);
+        log.info("=================url-decoded: {}", url);
+        String nonce = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 16);
+        String timestamp = String.valueOf(System.currentTimeMillis()/1000);
+        String signature = getSignature(nonce, getToken(WeixinUtil.TokenTypeEnum.jsApiToken.getValue()), timestamp, url);
+        return JsApiDto.builder().urlWithPara(url).nonce(nonce).timestamp(timestamp).signature(signature).appId(appId).build();
+
+    }
+
+    public static void main(String[] args) {
+        String s = "%3D";
+        try {
+            s = URLDecoder.decode(s, "UTF-8");
+            System.out.println(s);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public enum TokenTypeEnum {
         accessToken("1"), jsApiToken("2");
@@ -62,26 +109,31 @@ public class WeixinUtil {
         TokenTypeEnum(String value){
             this.value = value;
         }
-        String getValue(){
+        public String getValue(){
             return this.value;
         }
     }
 
     public String getToken(String tokenType){
 
-        Token accessToken= tokenMapper.selectById(Integer.valueOf(tokenType));
+        Token accessToken= tokenService.getById(Integer.valueOf(tokenType));
         return accessToken.getToken();
     }
 
-    public String getSignature(String noncestr, String ticket, String timestamp, String url) throws NoSuchAlgorithmException {
+    public String getSignature(String noncestr, String ticket, String timestamp, String url) {
         String str = "jsapi_ticket={jsapi_ticket}&noncestr={noncestr}&timestamp={timestamp}&url={url}"
                 .replace("{jsapi_ticket}", ticket).replace("{noncestr}", noncestr)
                 .replace("{timestamp}", timestamp).replace("{url}", url);
+        log.info("string1: {}", str);
         return sha1(str);
     }
 
-    public String sha1(String str) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("SHA"); // 此处的sha代表sha1
+    public String sha1(String str) {
+
+        MessageDigest messageDigest = null; // 此处的sha代表sha1
+        try {
+            messageDigest = MessageDigest.getInstance("SHA");
+        } catch (NoSuchAlgorithmException e) {}
         byte[] cipherBytes = messageDigest.digest(str.getBytes());
         String cipherStr = Hex.encodeHexString(cipherBytes);
         return cipherStr;
@@ -141,11 +193,11 @@ public class WeixinUtil {
 
         String accessToken = getTokenScheduled();
         if(StringUtils.isNotBlank(accessToken)){
-            tokenMapper.updateById(Token.builder().token(accessToken).tokenType("1").id(1).appId("wx_raiseFunds").updateTime(new Date()).build());
+            tokenService.updateById(Token.builder().token(accessToken).tokenType("1").id(1).appId("wx_raiseFunds").updateTime(new Date()).build());
         }
         String jpApiTicket = getJsApiTicketScheduled(accessToken);
         if(StringUtils.isNotBlank(jpApiTicket)){
-            tokenMapper.updateById(Token.builder().token(jpApiTicket).tokenType("2").id(2).appId("wx_raiseFunds").updateTime(new Date()).build());
+            tokenService.updateById(Token.builder().token(jpApiTicket).tokenType("2").id(2).appId("wx_raiseFunds").updateTime(new Date()).build());
         }
     }
 

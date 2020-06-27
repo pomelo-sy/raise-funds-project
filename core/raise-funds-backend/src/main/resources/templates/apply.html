@@ -14,6 +14,7 @@
     <script th:src="@{../static/js/zepto.min.js}"></script>
     <script type="text/javascript" th:src="@{../static/js/jweixin-1.0.0.js}"></script>
     <script type="text/javascript" th:src="@{../static/js/jquery.serializejson.min.js}"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script th:src="@{../static/js/weui.min.js}"></script>
     <link rel="stylesheet" th:href="@{../static/css/weui.css}">
 
@@ -71,13 +72,52 @@
                     <input id="targetFunds" name="targetFunds" class="weui-input" placeholder="请输入您需要筹集的资金额">
                 </div>
             </div>
+
+
             <input type="hidden" name="openId" th:value="${user.getOpenId()}">
-            <div class="weui-form__opr-area">
-                <a class="weui-btn weui-btn_primary" href="javascript:void(0)" onclick="apply_submit();" id="showTooltips">申请</a>
-            </div>
+
         </div>
     </div>
     </form>
+</div>
+<div class="page__bd">
+    <!--<div class="weui-gallery" id="gallery" style="opacity: 0;">
+        <span class="weui-gallery__img" id="galleryImg" th:style="'background-image:url(' + @{../static/image/pic_160.png}+');'"></span>
+        <div class="weui-gallery__opr">
+            <a href="javascript:" class="weui-gallery__del">
+                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+            </a>
+        </div>
+    </div>-->
+
+    <!--<div class="weui-cells weui-cells_form">
+        <div class="weui-cell  weui-cell_uploader">
+            <div class="weui-cell__bd">
+                <div class="weui-uploader">
+                    <div class="weui-uploader__hd">
+                        <p class="weui-uploader__title">资料上传</p>
+                        <div class="weui-uploader__info">0/3</div>
+                    </div>
+                    <div class="weui-uploader__bd">
+                        <ul class="weui-uploader__files" id="uploaderFiles">
+                            &lt;!&ndash;<li class="weui-uploader__file" style="background-image:url('../static/image/pic_160.png');"></li>
+                            <li class="weui-uploader__file" style="background-image:url('../static/image/pic_160.png');"></li>
+                            <li class="weui-uploader__file" style="background-image:url('../static/image/pic_160.png');"></li>&ndash;&gt;
+                            &lt;!&ndash;<li class="weui-uploader__file weui-uploader__file_status" style="background-image:url('../static/image/pic_160.png');">
+                                <div class="weui-uploader__file-content">50%</div>
+                            </li>&ndash;&gt;
+                        </ul>
+                        <div class="weui-uploader__input-box">
+                            <input id="uploaderInput" class="weui-uploader__input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="weui-form__opr-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:void(0)" onclick="apply_submit();" id="showTooltips">下一步</a>
+    </div>
 </div>
 <div class="js_dialog" id="warnDialog" style="opacity: 1;display: none">
     <div class="weui-mask"></div>
@@ -88,23 +128,80 @@
             </div>
     </div>
 </div>
-<!--<script  th:inline="javascript">
-    var appid = [[${APPID}]];
-    var timestamp = [[${timestamp}]];
-    var nonceStr = [[${nonceStr}]];
-    var signature = [[${signature}]];
+<script type="text/javascript">
+   /* $(function(){
 
-    wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: appid, // 必填，公众号的唯一标识
-        timestamp: timestamp, // 必填，生成签名的时间戳
-        nonceStr: nonceStr, // 必填，生成签名的随机串
-        signature: signature,// 必填，签名
-        jsApiList: [] // 必填，需要使用的JS接口列表
-    });
+        var appid = "[[${apiPara.appId}]]";
+        var timestamp = "[[${apiPara.timestamp}]]";
+        var nonceStr = "[[${apiPara.nonce}]]";
+        var signature = "[[${apiPara.signature}]]";
 
 
-</script>-->
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: appid, // 必填，公众号的唯一标识
+            timestamp: timestamp, // 必填，生成签名的时间戳
+            nonceStr: nonceStr, // 必填，生成签名的随机串
+            signature: signature,// 必填，签名
+            jsApiList: ['chooseImage','previewImage','uploadImage','downloadImage'] // 必填，需要使用的JS接口列表
+        });
+
+
+
+        var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
+            $uploaderInput = $("#uploaderInput"),
+            $uploaderFiles = $("#uploaderFiles")
+        ;
+
+        $uploaderInput.click(function(){
+
+            wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function (res) {
+                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    alert(localIds);
+                    alert(localIds[0]);
+                    $uploaderFiles.append($(tmpl.replace('#url#', localIds)));
+                    wx.uploadImage({
+                        localId: localIds[0], // 需要上传的图片的本地ID，由chooseImage接口获得
+                        isShowProgressTips: 1, // 默认为1，显示进度提示
+                        success: function (res) {
+                            var serverId = res.serverId; // 返回图片的服务器端ID
+                            alert(serverId);
+                        }
+                    });
+                }
+            });
+        });
+
+        $uploaderFiles.on("click", "li", function(){
+            $galleryImg.attr("style", this.getAttribute("style"));
+            $gallery.fadeIn(100);
+        });
+        $gallery.on("click", function(){
+            $gallery.fadeOut(100);
+        });
+
+        /!*$uploaderInput.on("change", function(e){
+            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+            for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+
+                if (url) {
+                    src = url.createObjectURL(file);
+                } else {
+                    src = e.target.result;
+                }
+                alert("src=" + src);
+
+                $uploaderFiles.append($(tmpl.replace('#url#', src)));
+            }
+        });*!/
+    });*/
+</script>
 <script>
     function apply_submit(){
 
@@ -147,14 +244,14 @@
         var json_data = $("#applyForm").serializeJSON();
         $.ajax({
             type: "POST",
-            url: "[[@{../raise/submitApply}]]",
+            url: "[[@{../raise/initApply}]]",
             data: JSON.stringify(json_data),
             dataType: "json",
             contentType:"application/json",
             success: function(data){
-                if(data.data){
-                    var jumpUrl = "[[@{../raise/myRaiseFunds}]]";
-                    jumpUrl+="?openId="+"[[${user.getOpenId()}]]";
+                if(data.flag){
+                    var jumpUrl = "[[@{../raise/step2}]]";
+                    jumpUrl+="?raiseId="+data.data+"&openId="+"[[${user.getOpenId()}]]";
                     window.location.href=jumpUrl;
                 }else{
                     alert("fail");

@@ -33,36 +33,25 @@
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
-		<!-- 生成映射文件的包名和位置 -->
+		<!--&lt;!&ndash; 生成映射文件的包名和位置 &ndash;&gt;
 		<sqlMapGenerator
 			targetPackage="org.shizhijian.raisefunds.mapping"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
-		<!-- 生成DAO的包名和位置 -->
+		&lt;!&ndash; 生成DAO的包名和位置 &ndash;&gt;
 		<javaClientGenerator type="XMLMAPPER"
 			targetPackage="com.epeins.factory.dao"
 			implementationPackage="org.shizhijian.raisefunds.dao.impl"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-
+-->
 		<!-- 要生成哪些表 -->
-		 <table tableName="f_raise_funds_desc"
-			domainObjectName="RaiseFundsDesc" enableCountByExample="true"
+		 <table tableName="t_raise_funds_file_material"
+			domainObjectName="RaiseFileMaterial" enableCountByExample="true"
 			enableUpdateByExample="true" enableDeleteByExample="true"
 			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="sys_approval_ticket"
-			domainObjectName="ApprovalTicket" enableCountByExample="true"
-			enableUpdateByExample="true" enableDeleteByExample="true"
-			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="sys_operator"
-			domainObjectName="Operator" enableCountByExample="true"
-			enableUpdateByExample="true" enableDeleteByExample="true"
-			enableSelectByExample="true" selectByExampleQueryId="true"></table>
-		<table tableName="user"
-			domainObjectName="User" enableCountByExample="true"
-			enableUpdateByExample="true" enableDeleteByExample="true"
-			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+
 	</context>
 </generatorConfiguration>

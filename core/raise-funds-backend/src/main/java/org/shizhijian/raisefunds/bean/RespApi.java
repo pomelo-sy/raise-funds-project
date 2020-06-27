@@ -17,7 +17,6 @@ public class RespApi<T> {
 
     RespApi(Boolean flag){
         this.flag = flag;
-        this.data = (T) Boolean.TRUE;
     }
 
     public static final RespApi OK = new RespApi<Boolean>(true);

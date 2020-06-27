@@ -47,11 +47,11 @@
                 </div>
                 <div class="weui-form-preview__item">
                     <label class="weui-form-preview__label">审批状态</label>
-                    <span class="weui-form-preview__value" th:if="${raise.getStatus()} eq 0" th:text="待审批"></span>
-                    <span class="weui-form-preview__value" th:if="${raise.getStatus()} eq 1" th:text="审批通过"></span>
+                    <span class="weui-form-preview__value" th:if="${raise.getStatus()} eq 10" th:text="待审批"></span>
+                    <span class="weui-form-preview__value" th:if="${raise.getStatus()} eq 20" th:text="审批通过"></span>
                 </div>
-                <a th:if="${raise.getStatus()} eq 0" th:id="href_+${raise.getId()}" class="weui-btn weui-btn_disabled weui-btn_default" th:href="@{'javascript:jumnDescDetail('+${raise.getId()}+')'}">详情页</a>
-                <a th:if="${raise.getStatus()} eq 1" th:id="href_+${raise.getId()}" class="weui-btn weui-btn_default" th:href="@{'javascript:jumnDescDetail('+${raise.getId()}+')'}">详情页</a>
+                <a th:if="${raise.getStatus()} eq 10" th:id="href_+${raise.getId()}" class="weui-btn weui-btn_disabled weui-btn_default" th:href="@{'javascript:jumnDescDetail('+${raise.getId()}+')'}">详情页</a>
+                <a th:if="${raise.getStatus()} eq 20" th:id="href_+${raise.getId()}" class="weui-btn weui-btn_default" th:href="@{'javascript:jumnDescDetail('+${raise.getId()}+')'}">详情页</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh" style="font-size: 37.5px;">
+<head>
+    <meta charset="UTF-8">
+    <title>申请</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <link rel="icon" href="https://store.shuidichou.com/imgs/common/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script th:src="@{../static/js/zepto.min.js}"></script>
+    <script type="text/javascript" th:src="@{../static/js/jweixin-1.0.0.js}"></script>
+    <script type="text/javascript" th:src="@{../static/js/jquery.serializejson.min.js}"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script th:src="@{../static/js/weui.min.js}"></script>
+    <link rel="stylesheet" th:href="@{../static/css/weui.css}">
+
+
+</head>
+<body>
+
+<div class="weui-form__control-area">
+    <form id="applyForm">
+        <div class="weui-cells__group weui-cells__group_form">
+            <div class="weui-cells__title">资料补充</div>
+            <div class="weui-media-box weui-media-box_text">
+                <p class="weui-media-box__desc">添加图片（选填，没有图片也可发起筹款）</p>
+                <p class="weui-media-box__desc">建议您第一张上传患者积极阳光/乐观向上的医院治疗照（如面带微笑的治疗照）</p>
+
+                <!--<ul class="weui-media-box__info">
+                    <li class="weui-media-box__info__meta">了解更多审核信息</li>
+                    <li class="weui-media-box__info__meta">时间</li>
+                    <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
+                </ul>-->
+            </div>
+            <div class="page__bd">
+                <div class="weui-gallery" id="gallery" style="opacity: 0;">
+                    <span class="weui-gallery__img" id="galleryImg"
+                          th:style="'background-image:url(' + @{../static/image/pic_160.png}+');'"></span>
+                    <div class="weui-gallery__opr">
+                        <a href="javascript:" class="weui-gallery__del">
+                            <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell  weui-cell_uploader">
+                        <div class="weui-cell__bd">
+                            <div class="weui-uploader">
+                                <div class="weui-uploader__hd">
+                                    <p class="weui-uploader__title">图片上传</p>
+                                    <div class="weui-uploader__info">0/3</div>
+                                </div>
+                                <div class="weui-uploader__bd">
+                                    <ul class="weui-uploader__files" id="uploaderFiles">
+                                        <!--<li class="weui-uploader__file" style="background-image:url('../static/image/pic_160.png');"></li>
+                                        <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url('../static/image/pic_160.png');">
+                                            <div class="weui-uploader__file-content">
+                                                <i class="weui-icon-warn"></i>
+                                            </div>
+                                        </li>-->
+                                        <!--<li class="weui-uploader__file weui-uploader__file_status" style="background-image:url('../static/image/pic_160.png');">
+                                            <div class="weui-uploader__file-content">50%</div>
+                                        </li>-->
+                                    </ul>
+                                    <div class="weui-uploader__input-box">
+                                        <input id="uploaderInput" class="weui-uploader__input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page article js_show">
+                    <div class="page__bd">
+                        <article class="weui-article">
+                            <h1>我承诺</h1>
+                            <section>
+                                <!--<h2 class="title">章标题</h2>-->
+                                <section>
+                                   <!-- <h3>1.1 节标题</h3>-->
+                                    <p>
+                                        1. 所发起的个人大病求助项目，全部求助款项将用于求助人的治疗及康复费用，绝不挪用，如有剩余及时退还。
+                                    </p>
+                                    <p>
+                                        2. 所发起的个人大病求助项目，全部求助款项将用于求助人的治疗及康复费用，绝不挪用，如有剩余及时退还。
+                                    </p>
+                                    <p>
+                                        3. 所发起的个人大病求助项目，全部求助款项将用于求助人的治疗及康复费用，绝不挪用，如有剩余及时退还。
+                                    </p>
+                                </section>
+                            </section>
+                        </article>
+                    </div>
+
+                </div>
+                <div class="weui-form__opr-area">
+                    <a class="weui-btn weui-btn_primary" href="javascript:void(0)" onclick="step3_submit();"
+                       id="showTooltips">提交</a>
+                </div>
+            </div>
+
+        </div>
+</div>
+</form>
+</div>
+
+<div class="js_dialog" id="warnDialog" style="opacity: 1;display: none">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:$('#warnDialog').css('display', 'none')"
+               class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+
+        var appid = "[[${apiPara.appId}]]";
+        var timestamp = "[[${apiPara.timestamp}]]";
+        var nonceStr = "[[${apiPara.nonce}]]";
+        var signature = "[[${apiPara.signature}]]";
+
+
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: appid, // 必填，公众号的唯一标识
+            timestamp: timestamp, // 必填，生成签名的时间戳
+            nonceStr: nonceStr, // 必填，生成签名的随机串
+            signature: signature,// 必填，签名
+            jsApiList: ['chooseImage', 'previewImage', 'uploadImage', 'downloadImage'] // 必填，需要使用的JS接口列表
+        });
+
+        var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
+            $uploaderInput = $("#uploaderInput"),
+            $uploaderFiles = $("#uploaderFiles")
+        ;
+
+        $uploaderInput.click(function () {
+
+            wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function (res) {
+                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    alert(localIds);
+                    alert(localIds[0]);
+                    $uploaderFiles.append($(tmpl.replace('#url#', localIds)));
+                    wx.uploadImage({
+                        localId: localIds[0], // 需要上传的图片的本地ID，由chooseImage接口获得
+                        isShowProgressTips: 1, // 默认为1，显示进度提示
+                        success: function (res) {
+                            var serverId = res.serverId; // 返回图片的服务器端ID
+                            alert(serverId);
+                        }
+                    });
+                }
+            });
+        });
+
+        $uploaderFiles.on("click", "li", function () {
+            $galleryImg.attr("style", this.getAttribute("style"));
+            $gallery.fadeIn(100);
+        });
+        $gallery.on("click", function () {
+            $gallery.fadeOut(100);
+        });
+
+        /*  $uploaderInput.on("change", function(e){
+              var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+              for (var i = 0, len = files.length; i < len; ++i) {
+                  var file = files[i];
+
+                  if (url) {
+                      src = url.createObjectURL(file);
+                  } else {
+                      src = e.target.result;
+                  }
+
+                  $uploaderFiles.append($(tmpl.replace('#url#', src)));
+              }
+          });*/
+    });
+
+</script>
+<script>
+    function step3_submit() {
+
+        var json_data = {"raiseId": "[[${raiseId}]]"}
+        $.ajax({
+            type: "POST",
+            url: "[[@{../raise/step3Apply}]]",
+            data: JSON.stringify(json_data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+                if (data.flag) {
+                    var jumpUrl = "[[@{../raise/myRaiseFunds}]]";
+                    jumpUrl += "?openId=" + "[[${user.getOpenId()}]]";
+                    window.location.href = jumpUrl;
+                } else {
+                    alert("fail");
+                }
+            }
+        })
+
+    }
+</script>
+</body>
+</html>

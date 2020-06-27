@@ -16,8 +16,16 @@ public class RaiseFundsDescServiceImpl extends ServiceImpl<RaiseFundsDescMapper,
 
     @Override
     public List<RaiseFundsDesc> findByOpenId(String openId) {
+        return this.findByOpenIdAndStatus(openId, null);
+    }
+
+    @Override
+    public List<RaiseFundsDesc> findByOpenIdAndStatus(String openId, Integer status) {
         QueryWrapper<RaiseFundsDesc> opEqual = new QueryWrapper<>();
         opEqual.eq("open_id", openId);
+        if(status != null){
+            opEqual.eq("status", status);
+        }
         List<RaiseFundsDesc> raises = list(opEqual);
         return raises;
     }

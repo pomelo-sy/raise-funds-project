@@ -7,6 +7,7 @@ import org.shizhijian.raisefunds.Enum.raiseStatus;
 import org.shizhijian.raisefunds.bean.RespApi;
 import org.shizhijian.raisefunds.core.WeixinUtil;
 import org.shizhijian.raisefunds.dto.ApplyParam;
+import org.shizhijian.raisefunds.dto.JsApiDto;
 import org.shizhijian.raisefunds.pojo.RaiseFundsDesc;
 import org.shizhijian.raisefunds.pojo.User;
 import org.shizhijian.raisefunds.service.RaiseFundsDescService;
@@ -16,10 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
+import java.security.NoSuchAlgorithmException;
+import java.util.*;
 
 @Controller
 @RequestMapping("/raise")
@@ -38,11 +40,13 @@ public class RaiseFundsController extends BaseController{
     @Autowired
     private RaiseFundsDescService raiseFundsDescService;
 
+
     @GetMapping("/apply")
-    public String apply(String code, String openId, Model model){
+    public String apply(ServletRequest request, String code, String openId, Model model) {
 
         log.info("openId: {}", openId);
         log.info("code: {}", code);
+
         User user = null;
         //如果是从菜单点过来的没有openid，内部流转带openId
         if(StringUtils.isEmpty(openId)){
@@ -70,25 +74,32 @@ public class RaiseFundsController extends BaseController{
         }else{
             user = userService.getUserByOpenId(openId);
         }
+
+        JsApiDto apiPara = weixinUtil.getJsApiDto(request);
+        model.addAttribute("apiPara", apiPara);
         model.addAttribute("user", user);
         return "apply";
     }
 
 
-    @PostMapping("/submitApply")
+    @PostMapping("/initApply")
     @ResponseBody
-    public RespApi<Boolean> submitApply(@RequestBody ApplyParam applyParam){
+    public RespApi<Boolean> initApply(@RequestBody ApplyParam applyParam){
 
-        log.info("submitParam: {}", applyParam);
+        RespApi result = RespApi.FAIL;
+        log.info("initApply: {}", applyParam);
         User sponsorUser = userService.getUserByOpenId(applyParam.getOpenId());
         if(sponsorUser != null){
-            boolean save = raiseFundsDescService.save(RaiseFundsDesc.builder().sponsorUserName(applyParam.getName())
+            RaiseFundsDesc raise = RaiseFundsDesc.builder().sponsorUserName(applyParam.getName())
                     .openId(applyParam.getOpenId()).status(raiseStatus.init.getStatus())
                     .content(applyParam.getContent()).title(applyParam.getTitle())
                     .fundsTarget(new BigDecimal(applyParam.getTargetFunds())).createDate(new Date())
-                    .build());
+                    .build();
+            boolean save = raiseFundsDescService.save(raise);
             if(save){
-                return RespApi.OK;
+                result = RespApi.OK;
+                result.setData(raise.getId());
+                return result;
             }else{
                 return RespApi.FAIL;
             }
@@ -96,6 +107,74 @@ public class RaiseFundsController extends BaseController{
         }
         return RespApi.FAIL;
     }
+
+    @GetMapping("/step2")
+    public String step2(ServletRequest request, String openId, String raiseId, Model model) {
+
+        log.info("openId: {}, raiseId: {}", openId, raiseId);
+        User user = userService.getUserByOpenId(openId);
+        JsApiDto apiPara = weixinUtil.getJsApiDto(request);
+        model.addAttribute("apiPara", apiPara);
+        model.addAttribute("raiseId", raiseId);
+        model.addAttribute("user", user);
+        return "step2";
+    }
+
+
+    @PostMapping("/step2Apply")
+    @ResponseBody
+    public RespApi<Boolean> step2Apply(@RequestBody ApplyParam applyParam){
+
+        RespApi result = null;
+        log.info("step2Apply: {}", applyParam);
+        RaiseFundsDesc raise = raiseFundsDescService.getById(applyParam.getRaiseId());
+        raise.setStatus(raiseStatus.step2.getStatus());
+        raise.setHasHouse(applyParam.getHouse() == 1);
+        raise.setOtherPlatform(applyParam.getOtherPlatform() == 1);
+        raise.setHasLifeAccident(applyParam.getAccident() == 1);
+        raise.setHasProperty(applyParam.getProperty() == 1);
+        raise.setHasInsurance(applyParam.getInsurance() == 1);
+        raise.setSalary(applyParam.getSalary());
+        raise.setDebts(applyParam.getDebts());
+        boolean flag = raiseFundsDescService.updateById(raise);
+        if(flag){
+            result = RespApi.OK;
+            result.setData(raise.getId());
+            return result;
+        }
+        return RespApi.FAIL;
+    }
+
+
+    @GetMapping("/step3")
+    public String step3(ServletRequest request, String openId, String raiseId, Model model) {
+
+        log.info("openId: {}, raiseId: {}", openId, raiseId);
+        User user = userService.getUserByOpenId(openId);
+        JsApiDto apiPara = weixinUtil.getJsApiDto(request);
+        model.addAttribute("apiPara", apiPara);
+        model.addAttribute("raiseId", raiseId);
+        model.addAttribute("user", user);
+        return "step3";
+    }
+
+    @PostMapping("/step3Apply")
+    @ResponseBody
+    public RespApi<Boolean> step3Apply(@RequestBody ApplyParam applyParam){
+
+        RespApi result = RespApi.FAIL;
+        log.info("step3Apply: applyParam: {}", applyParam);
+        RaiseFundsDesc raise = raiseFundsDescService.getById(applyParam.getRaiseId());
+        raise.setStatus(raiseStatus.step3.getStatus());
+        boolean flag = raiseFundsDescService.updateById(raise);
+        if(flag){
+            result = RespApi.OK;
+            result.setData(raise.getId());
+        }
+        return result;
+    }
+
+
 
     @GetMapping("/myRaiseFunds")
     public String myRaiseFunds(String code, String openId, Model model){
@@ -114,7 +193,7 @@ public class RaiseFundsController extends BaseController{
                 }
             }
         }else{
-            raises = raiseFundsDescService.findByOpenId(openId);
+            raises = raiseFundsDescService.findByOpenIdAndStatus(openId, raiseStatus.step3.getStatus());
         }
 
         String redirectServer = request.getScheme() +"://" + request.getServerName()

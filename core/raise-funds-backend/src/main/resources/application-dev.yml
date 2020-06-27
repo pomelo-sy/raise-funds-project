@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://39.98.152.84:3306/raise_funds_db?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/raise_funds_db?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: root
     password: root
     tomcat:
@@ -32,3 +32,13 @@ weixin:
     getWebAccessToken: https://api.weixin.qq.com/sns/oauth2/access_token?appid={APPID}&secret={appSecret}&code={code}&grant_type=authorization_code
     getJsApiTicket: https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token={access_token}&type=jsapi
 
+
+
+#fdfs:
+#  so-timeout: 1500
+#  connect-timeout: 600
+#  tracker-list:
+#    - 192.168.1.118:22122
+#  thumb-image:
+#    width: 150
+#    height: 150

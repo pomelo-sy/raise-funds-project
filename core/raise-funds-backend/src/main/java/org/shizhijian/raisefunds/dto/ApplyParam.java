@@ -26,4 +26,21 @@ public class ApplyParam implements Serializable {
     private String targetFunds;
 
     private String openId;
+
+    private Integer raiseId;
+
+    private Integer house;
+
+    private Integer otherPlatform;
+
+    private Integer accident;
+
+    private Integer property;
+
+    private Integer insurance;
+
+    private String salary;
+
+    private String debts;
+
 }

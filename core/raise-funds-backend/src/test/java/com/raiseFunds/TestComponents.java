@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.ui.Model;
 
 import java.net.URI;
+import java.net.URLDecoder;
 import java.util.Date;
 
 @RunWith(value= SpringRunner.class)
@@ -39,8 +40,8 @@ public class TestComponents {
 
 
     @Test
-    public void TestRasie(){
-        raiseFundsController.apply("011AQP5q0LhmRj1PCM5q0kkL5q0AQP5k", null,null);
+    public void TestRaise(){
+//        raiseFundsController.apply("011AQP5q0LhmRj1PCM5q0kkL5q0AQP5k", null,null);
     }
 
 
@@ -74,6 +75,11 @@ public class TestComponents {
 
     }
 
+    @Test
+    public void printUrl(){
+        String url ="https%3A%2F%2Fwww.shuidichou.com%2Fcf%2Fcontribute%2F56709ec7-03dd-4b26-a3f5-d1521e8eadaf%3FuserSourceId%3DnqGmez0BXlu0odpXUArmgg%26sharedv%3D0%26shareId%3D1FDA92D2-896E-43C7-B829-EAD3F30CCFBB";
+        System.out.println(URLDecoder.decode(url));
+    }
 
     @Test
     public void testUserName(){
