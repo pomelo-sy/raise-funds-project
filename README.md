@@ -1,28 +1,28 @@
-import com.baomidou.mybatisplus.core.parser.ISqlParser;
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
 import net.sf.jsqlparser.expression.operators.conditional.AndExpression;
+import net.sf.jsqlparser.expression.operators.relational.EqualsTo;
+import net.sf.jsqlparser.expression.operators.relational.ExpressionList;
 import net.sf.jsqlparser.expression.operators.relational.InExpression;
-import net.sf.jsqlparser.expression.operators.relational.ItemsList;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.schema.Table;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.statement.select.*;
+import net.sf.jsqlparser.util.TablesNamesFinder;
 import org.apache.ibatis.executor.Executor;
-import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
-import java.sql.Connection;
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 租户数据隔离拦截器(MyBatis-Plus InnerInterceptor实现)
+ * 租户数据隔离拦截器(兼容JSQLParser 4.9版本)
  */
 public class TenantInnerInterceptor implements InnerInterceptor {
 
@@ -104,15 +104,18 @@ public class TenantInnerInterceptor implements InnerInterceptor {
             return;
         }
         
-        // 创建租户IN条件
-        ItemsList itemsList = new net.sf.jsqlparser.expression.operators.relational.ExpressionList(
-            tenantIds.stream()
-                .map(id -> new LongValue(Long.parseLong(id)))
-                .toArray(Expression[]::new)
-        );
+        // 创建租户IN条件(JSQLParser 4.9版本用法)
+        ExpressionList itemsList = new ExpressionList();
+        List<Expression> expressions = new ArrayList<>();
+        for (String id : tenantIds) {
+            expressions.add(new LongValue(Long.parseLong(id)));
+        }
+        itemsList.setExpressions(expressions);
         
         Column tenantColumn = new Column(this.tenantColumn);
-        InExpression inExpression = new InExpression(tenantColumn, itemsList);
+        InExpression inExpression = new InExpression();
+        inExpression.setLeftExpression(tenantColumn);
+        inExpression.setRightItemsList(itemsList);
         
         // 处理JOIN条件
         processJoins(plainSelect.getJoins());
@@ -120,7 +123,8 @@ public class TenantInnerInterceptor implements InnerInterceptor {
         // 处理WHERE条件
         if (tables.stream().anyMatch(t -> !isTableExcluded(t))) {
             Expression where = plainSelect.getWhere();
-            plainSelect.setWhere(where == null ? inExpression : new AndExpression(where, inExpression));
+            plainSelect.setWhere(where == null ? inExpression : 
+                new AndExpression(where, inExpression));
         }
     }
 
@@ -134,8 +138,10 @@ public class TenantInnerInterceptor implements InnerInterceptor {
                     Expression onExpression = join.getOnExpression();
                     if (onExpression != null) {
                         Column joinColumn = new Column(joinTable.getName() + "." + tenantColumn);
-                        join.setOnExpression(new AndExpression(onExpression, 
-                            new EqualsTo(joinColumn, new Column(tenantColumn))));
+                        EqualsTo equalsTo = new EqualsTo();
+                        equalsTo.setLeftExpression(joinColumn);
+                        equalsTo.setRightExpression(new Column(tenantColumn));
+                        join.setOnExpression(new AndExpression(onExpression, equalsTo));
                     }
                 }
             }
@@ -158,7 +164,7 @@ public class TenantInnerInterceptor implements InnerInterceptor {
 
     private void resetBoundSql(BoundSql boundSql, String newSql) {
         try {
-            java.lang.reflect.Field field = boundSql.getClass().getDeclaredField("sql");
+            Field field = boundSql.getClass().getDeclaredField("sql");
             field.setAccessible(true);
             field.set(boundSql, newSql);
         } catch (Exception e) {
@@ -182,5 +188,17 @@ public class TenantInnerInterceptor implements InnerInterceptor {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+    
+    public Set<String> getExcludedTables() {
+        return Collections.unmodifiableSet(excludedTables);
+    }
+    
+    public String getTenantColumn() {
+        return tenantColumn;
+    }
+    
+    public boolean isEnabled() {
+        return enabled;
     }
 }
