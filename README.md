@@ -1,201 +1,186 @@
-import net.sf.jsqlparser.JSQLParserException;
-import net.sf.jsqlparser.expression.*;
+import com.baomidou.mybatisplus.core.parser.ISqlParser;
+import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
+import net.sf.jsqlparser.expression.Expression;
+import net.sf.jsqlparser.expression.LongValue;
 import net.sf.jsqlparser.expression.operators.conditional.AndExpression;
 import net.sf.jsqlparser.expression.operators.relational.InExpression;
+import net.sf.jsqlparser.expression.operators.relational.ItemsList;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.schema.Table;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.statement.select.*;
+import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.plugin.*;
-import org.apache.ibatis.reflection.MetaObject;
-import org.apache.ibatis.reflection.SystemMetaObject;
+import org.apache.ibatis.session.ResultHandler;
+import org.apache.ibatis.session.RowBounds;
 
 import java.sql.Connection;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
-@Intercepts({
-    @Signature(
-        type = StatementHandler.class,
-        method = "prepare",
-        args = {Connection.class, Integer.class}
-    )
-})
-public class EnhancedProductInterceptor implements Interceptor {
+/**
+ * 租户数据隔离拦截器(MyBatis-Plus InnerInterceptor实现)
+ */
+public class TenantInnerInterceptor implements InnerInterceptor {
+
+    // 缓存解析后的SQL语句
+    private final Map<String, Statement> statementCache = new ConcurrentHashMap<>();
+    // 缓存表名
+    private final Map<String, Set<String>> tablesCache = new ConcurrentHashMap<>();
     
-    // 配置属性
-    private String productIdColumn = "product_id";
-    private final Set<String> excludedTables = ConcurrentHashMap.newKeySet();
-    private final Set<String> excludedMappers = ConcurrentHashMap.newKeySet();
-    private final Set<String> targetTables = ConcurrentHashMap.newKeySet();
-    
-    // SQL解析缓存
-    private final Map<String, String> sqlCache = new ConcurrentHashMap<>();
-    
-    // 获取当前产品ID列表（从上下文）
-    private List<Long> getCurrentProductIds() {
-        // 实际应用中从ThreadLocal/RequestContext获取
-        return Arrays.asList(1001L, 1002L, 1003L); // 示例数据
-    }
+    // 排除的表名(不进行租户过滤)
+    private Set<String> excludedTables = new HashSet<>();
+    // 租户字段名(默认product_id)
+    private String tenantColumn = "product_id";
+    // 是否启用租户过滤(默认启用)
+    private boolean enabled = true;
 
     @Override
-    public Object intercept(Invocation invocation) throws Throwable {
-        StatementHandler handler = (StatementHandler) invocation.getTarget();
-        MetaObject metaHandler = SystemMetaObject.forObject(handler);
-        
-        // 获取MappedStatement
-        MappedStatement ms = (MappedStatement) metaHandler.getValue("delegate.mappedStatement");
-        String mapperId = ms.getId();
-        
-        // 检查是否排除当前Mapper
-        if (excludedMappers.contains(mapperId)) {
-            return invocation.proceed();
+    public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, 
+                          RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) {
+        if (!enabled) {
+            return;
         }
         
-        // 获取原始SQL
-        BoundSql boundSql = handler.getBoundSql();
+        // 获取租户ID列表(需要自行实现)
+        List<String> tenantIds = TenantContext.getTenantIds();
+        if (tenantIds == null || tenantIds.isEmpty()) {
+            return;
+        }
+        
+        // 处理原始SQL
         String originalSql = boundSql.getSql();
-        List<Long> productIds = getCurrentProductIds();
+        String cacheKey = originalSql + "|" + String.join(",", tenantIds);
         
-        // 产品ID为空时不处理
-        if (productIds == null || productIds.isEmpty()) {
-            return invocation.proceed();
-        }
-        
-        // 生成缓存键
-        String cacheKey = originalSql + "|" + productIds.hashCode();
-        String rewrittenSql = sqlCache.get(cacheKey);
-        
-        if (rewrittenSql == null) {
-            try {
-                Statement stmt = CCJSqlParserUtil.parse(originalSql);
-                if (stmt instanceof Select) {
-                    Select select = (Select) stmt;
-                    SelectBody selectBody = select.getSelectBody();
-                    
-                    if (selectBody instanceof PlainSelect) {
-                        PlainSelect plainSelect = (PlainSelect) selectBody;
-                        
-                        // 获取所有涉及的表
-                        Set<String> tables = extractTables(plainSelect);
-                        
-                        // 检查是否需要处理（有目标表且无排除表）
-                        if (!Collections.disjoint(tables, targetTables) && 
-                            Collections.disjoint(tables, excludedTables)) {
-                            
-                            // 添加产品ID条件
-                            addProductIdCondition(plainSelect, productIds);
-                        }
-                    }
-                }
+        try {
+            // 从缓存获取或解析SQL
+            Statement statement = statementCache.computeIfAbsent(cacheKey, 
+                key -> parseSql(originalSql));
+            
+            if (statement instanceof Select) {
+                Select select = (Select) statement;
+                processSelectStatement(select, tenantIds);
                 
-                rewrittenSql = stmt.toString();
-                sqlCache.put(cacheKey, rewrittenSql);
-            } catch (JSQLParserException e) {
-                // 解析失败时使用原始SQL
-                rewrittenSql = originalSql;
+                // 修改BoundSql中的SQL
+                resetBoundSql(boundSql, select.toString());
             }
+        } catch (Exception e) {
+            throw new RuntimeException("Tenant filter failed", e);
         }
-        
-        // 替换原始SQL
-        metaHandler.setValue("delegate.boundSql.sql", rewrittenSql);
-        
-        return invocation.proceed();
     }
 
-    @Override
-    public Object plugin(Object target) {
-        return Plugin.wrap(target, this);
+    private Statement parseSql(String sql) {
+        try {
+            return CCJSqlParserUtil.parse(sql);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to parse SQL", e);
+        }
     }
 
-    @Override
-    public void setProperties(Properties properties) {
-        // 从配置加载属性
-        if (properties.containsKey("productIdColumn")) {
-            this.productIdColumn = properties.getProperty("productIdColumn");
-        }
+    private void processSelectStatement(Select select, List<String> tenantIds) {
+        SelectBody selectBody = select.getSelectBody();
         
-        loadSetProperty(properties, "targetTables", targetTables);
-        loadSetProperty(properties, "excludedTables", excludedTables);
-        loadSetProperty(properties, "excludedMappers", excludedMappers);
-    }
-    
-    private void loadSetProperty(Properties properties, String key, Set<String> set) {
-        String value = properties.getProperty(key);
-        if (value != null && !value.trim().isEmpty()) {
-            Arrays.stream(value.split(","))
-                .map(String::trim)
-                .filter(s -> !s.isEmpty())
-                .forEach(set::add);
-        }
-    }
-    
-    /**
-     * 提取SQL中所有涉及的表名
-     */
-    private Set<String> extractTables(PlainSelect plainSelect) {
-        Set<String> tables = new HashSet<>();
-        
-        // 主表
-        extractTableFromItem(plainSelect.getFromItem(), tables);
-        
-        // JOIN表
-        if (plainSelect.getJoins() != null) {
-            for (Join join : plainSelect.getJoins()) {
-                extractTableFromItem(join.getRightItem(), tables);
-            }
-        }
-        
-        return tables;
-    }
-    
-    private void extractTableFromItem(FromItem fromItem, Set<String> tables) {
-        if (fromItem instanceof Table) {
-            Table table = (Table) fromItem;
-            tables.add(table.getName().toLowerCase());
-        } else if (fromItem instanceof SubSelect) {
-            // 递归处理子查询
-            SubSelect subSelect = (SubSelect) fromItem;
-            if (subSelect.getSelectBody() instanceof PlainSelect) {
-                tables.addAll(extractTables((PlainSelect) subSelect.getSelectBody()));
+        if (selectBody instanceof PlainSelect) {
+            processPlainSelect((PlainSelect) selectBody, tenantIds);
+        } else if (selectBody instanceof WithItem) {
+            WithItem withItem = (WithItem) selectBody;
+            if (withItem.getSelectBody() instanceof PlainSelect) {
+                processPlainSelect((PlainSelect) withItem.getSelectBody(), tenantIds);
             }
         }
     }
-    
-    /**
-     * 添加产品ID条件
-     */
-    private void addProductIdCondition(PlainSelect plainSelect, List<Long> productIds) {
-        // 构建IN表达式：product_id IN (1001,1002,...)
-        Column productIdColumn = new Column(this.productIdColumn);
-        InExpression inExpr = new InExpression();
-        inExpr.setLeftExpression(productIdColumn);
-        inExpr.setRightItemsList(
-            new ExpressionList(
-                productIds.stream()
-                    .map(LongValue::new)
-                    .collect(Collectors.toList())
-            )
+
+    private void processPlainSelect(PlainSelect plainSelect, List<String> tenantIds) {
+        // 获取查询中的所有表名
+        Set<String> tables = tablesCache.computeIfAbsent(
+            plainSelect.toString(), 
+            key -> new TablesNamesFinder().getTableList(plainSelect));
+        
+        // 如果所有表都被排除，则不处理
+        if (tables.isEmpty() || tables.stream().allMatch(this::isTableExcluded)) {
+            return;
+        }
+        
+        // 创建租户IN条件
+        ItemsList itemsList = new net.sf.jsqlparser.expression.operators.relational.ExpressionList(
+            tenantIds.stream()
+                .map(id -> new LongValue(Long.parseLong(id)))
+                .toArray(Expression[]::new)
         );
         
-        // 添加到WHERE条件
-        Expression where = plainSelect.getWhere();
-        if (where == null) {
-            plainSelect.setWhere(inExpr);
-        } else {
-            plainSelect.setWhere(new AndExpression(where, inExpr));
+        Column tenantColumn = new Column(this.tenantColumn);
+        InExpression inExpression = new InExpression(tenantColumn, itemsList);
+        
+        // 处理JOIN条件
+        processJoins(plainSelect.getJoins());
+        
+        // 处理WHERE条件
+        if (tables.stream().anyMatch(t -> !isTableExcluded(t))) {
+            Expression where = plainSelect.getWhere();
+            plainSelect.setWhere(where == null ? inExpression : new AndExpression(where, inExpression));
         }
     }
+
+    private void processJoins(List<Join> joins) {
+        if (joins == null) return;
+        
+        for (Join join : joins) {
+            if (join.isLeft() || join.isRight() || join.isFull()) {
+                Table joinTable = extractTableFromJoin(join.getRightItem());
+                if (joinTable != null && !isTableExcluded(joinTable.getName())) {
+                    Expression onExpression = join.getOnExpression();
+                    if (onExpression != null) {
+                        Column joinColumn = new Column(joinTable.getName() + "." + tenantColumn);
+                        join.setOnExpression(new AndExpression(onExpression, 
+                            new EqualsTo(joinColumn, new Column(tenantColumn))));
+                    }
+                }
+            }
+        }
+    }
+
+    private Table extractTableFromJoin(FromItem item) {
+        if (item instanceof Table) {
+            return (Table) item;
+        } else if (item instanceof SubJoin) {
+            return extractTableFromJoin(((SubJoin) item).getLeft());
+        }
+        return null;
+    }
+
+    private boolean isTableExcluded(String tableName) {
+        return excludedTables.contains(tableName.toLowerCase()) || 
+               excludedTables.contains(tableName.toUpperCase());
+    }
+
+    private void resetBoundSql(BoundSql boundSql, String newSql) {
+        try {
+            java.lang.reflect.Field field = boundSql.getClass().getDeclaredField("sql");
+            field.setAccessible(true);
+            field.set(boundSql, newSql);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to modify bound SQL", e);
+        }
+    }
+
+    // ========== 配置方法 ==========
     
-    /**
-     * 清理缓存（可定期调用）
-     */
-    public void clearCache() {
-        sqlCache.clear();
+    public void setExcludedTables(Set<String> excludedTables) {
+        this.excludedTables = excludedTables;
+    }
+
+    public void addExcludedTable(String tableName) {
+        this.excludedTables.add(tableName);
+    }
+
+    public void setTenantColumn(String tenantColumn) {
+        this.tenantColumn = tenantColumn;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
