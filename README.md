@@ -1,44 +1,24 @@
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-@Aspect
-@Component
-public class TenantFilterAspect {
-
-    @Autowired
-    private TenantInnerInterceptor tenantInterceptor;
-
-    @Around("@annotation(tenantFilter) || @within(tenantFilter)")
-    public Object around(ProceedingJoinPoint joinPoint, TenantFilter tenantFilter) throws Throwable {
-        // 保存原始配置
-        boolean originalEnabled = tenantInterceptor.isEnabled();
-        String originalColumn = tenantInterceptor.getTenantColumn();
-        Set<String> originalExcludedTables = tenantInterceptor.getExcludedTables();
-        
-        try {
-            // 应用注解配置
-            if (!tenantFilter.enabled()) {
-                tenantInterceptor.setEnabled(false);
+@Configuration
+public class SwaggerConfig {
+    @Bean
+    public ModelConverter resultModelConverter() {
+        return new ModelConverter() {
+            @Override
+            public Schema resolve(Type type, ModelConverterContext context, Iterator<ModelConverter> chain) {
+                if (type instanceof ParameterizedType) {
+                    ParameterizedType pType = (ParameterizedType) type;
+                    if (pType.getRawType() == Result.class) {
+                        // 如果是 Result<T>，提取 T 的类型
+                        Type dataType = pType.getActualTypeArguments()[0];
+                        Schema dataSchema = context.resolve(dataType);
+                        return new ObjectSchema()
+                            .addProperty("code", new IntegerSchema())
+                            .addProperty("message", new StringSchema())
+                            .addProperty("data", dataSchema);
+                    }
+                }
+                return chain.hasNext() ? chain.next().resolve(type, context, chain) : null;
             }
-            
-            if (!tenantFilter.tenantColumn().isEmpty()) {
-                tenantInterceptor.setTenantColumn(tenantFilter.tenantColumn());
-            }
-            
-            if (tenantFilter.excludeTables().length > 0) {
-                tenantInterceptor.getExcludedTables().addAll(Arrays.asList(tenantFilter.excludeTables()));
-            }
-            
-            // 执行原方法
-            return joinPoint.proceed();
-        } finally {
-            // 恢复原始配置
-            tenantInterceptor.setEnabled(originalEnabled);
-            tenantInterceptor.setTenantColumn(originalColumn);
-            tenantInterceptor.setExcludedTables(originalExcludedTables);
-        }
+        };
     }
 }
